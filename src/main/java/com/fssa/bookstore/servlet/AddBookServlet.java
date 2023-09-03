@@ -49,7 +49,7 @@ public class AddBookServlet extends HttpServlet {
 		// Convert to the string and set the values
 		if (category != null) {
 			Categories catgy = Categories.valueOf(category);
-			book.setbookCategories(catgy);
+			book.setBookCategories(catgy);
 			book.setBookName(name);
 			book.setBookPrice(price);
 			book.setBookImageUrl(imageUrl);

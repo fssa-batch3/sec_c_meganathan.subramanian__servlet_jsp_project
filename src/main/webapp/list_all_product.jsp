@@ -76,13 +76,13 @@
 			<td><%=books.getBookId()%></td>
 			<td><%=books.getBookName()%></td>
 			<td><%=books.getBookPrice()%></td>
-			<td><%=books.getbookCategories()%></td>
+			<td><%=books.getBookCategories()%></td>
 			<td><img alt="book_img"  id="BookImg" src="<%=books.getBookImageUrl()%>"></td>
 			<td><%=books.getBooklanguage()%></td>
 			<td><%=books.getQuantity()%></td>
 			<td><%=books.getAuthor()%></td>
 			<td><%=books.getBookDescription()%></td>
-			<td><a href="ViewBookServlet?BookId=<%=books.getBookId()%>"><button type="submit">View</button></a></td>
+			<td><a href="ViewBookServlet?BookId=<%=books.getBookId()%>"><button type="submit" id="openViewBtn">View</button></a></td>
 			<td><a href="EditBookServlet?BookId=<%=books.getBookId()%>"><button type="Submit">Edit</button></a></td>
 			<td><a href="DeleteBookServlet?BookId=<%=books.getBookId()%>"><button type="Submit">Delete</button></a></td>
 			

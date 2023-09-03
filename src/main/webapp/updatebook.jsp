@@ -29,7 +29,7 @@ Book book = (Book) request.getAttribute("Book");
         <input type="number" id="price" name="price" value="<%=book.getBookPrice()%>"  required><br>
         
         <label for="category">Category:</label>
-        <input type="text" id="category" name="category" value="<%=book.getbookCategories()%>"  required><br>
+        <input type="text" id="category" name="category" value="<%=book.getBookCategories()%>"  required><br>
         
         <label for="image_url">Image URL:</label>
         <input type="url" id="image_url" name="image_url" value="<%=book.getBookImageUrl()%>"  required><br>
