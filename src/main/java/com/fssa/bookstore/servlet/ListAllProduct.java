@@ -18,17 +18,9 @@ import com.fssa.bookstore.service.BookService;
  * Servlet implementation class ListAllProduct
  */
 @WebServlet("/ListAllProduct")
-public class ListAllProduct extends HttpServlet {
+public class ListAllProduct extends HttpServlet {1
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListAllProduct() {
-        super();
-       
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

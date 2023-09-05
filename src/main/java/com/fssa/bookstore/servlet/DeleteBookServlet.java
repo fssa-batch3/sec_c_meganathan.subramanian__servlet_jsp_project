@@ -42,7 +42,7 @@ public class DeleteBookServlet extends HttpServlet {
 			    response.sendRedirect(request.getContextPath()+ "/ListAllProduct");
 			    out.println("</script>");
 		}
-		catch(ServiceException e) {
+		catch(ServiceException | IOException e) {
 			e.getStackTrace();
 		}
 	}

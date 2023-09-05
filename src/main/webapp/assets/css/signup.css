@@ -1,0 +1,191 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Nunito:wght@300&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Heebo', sans-serif;
+	font-family: 'Nunito', sans-serif;
+}
+
+body {
+	font-family: 'Heebo', sans-serif;
+	font-family: 'Nunito', sans-serif;
+}
+
+
+/* LOGIN FORM EDIT */
+
+.forms {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 120px;
+}
+
+.svg-img img {
+	margin-right: 110px;
+	width: 580px;
+}
+
+.login-form {
+	height: 800px;
+	background-color: #a39dff;
+	border-radius: 15px;
+	max-width: 440px;
+}
+
+form {
+	padding: 25px;
+}
+
+h1 {
+	margin-left: 56px;
+	font-size: 50px;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
+p {
+	font-size: 24px;
+	font-weight: 700;
+	margin-left: 25px;
+	margin-bottom: 20px;
+}
+
+.login-form span {
+	color: white;
+}
+
+.already-user span {
+	margin-left: -180px;
+	font-size: 18px;
+	color: black;
+
+}
+
+.already-user a {
+	color: white;
+	font-size: 19px;
+	font-weight: 800;
+
+}
+
+form input {
+	margin: 10px auto;
+	margin-left: 20px;
+}
+
+.rem-me {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#check {
+	width: 15px;
+	margin-left: 25px;
+}
+
+.rem-me h4 {
+	margin-right: 230px;
+	font-size: 18px;
+
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+h2 {
+	margin-left: 50px;
+	margin-top: 12px;
+	font-size: 22px;
+	font-weight: 900;
+	color: white;
+}
+
+.social-link {
+	margin-left: 40px;
+	margin-top: 20px;
+
+}
+
+.social-link i {
+	border: 1px solid #a39dff;
+	border-radius: 50%;
+	padding: 10px;
+	font-size: 32px;
+	font-weight: 800;
+	margin-left: 13px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.social-link i:hover {
+	background-color: white;
+}
+
+
+input[type="text"] {
+	padding-left: 20px;
+}
+
+input[type="password"] {
+	padding-left: 20px;
+	margin-top: 12px;
+}
+
+
+input[type="email"] {
+	padding-left: 20px;
+	margin-top: 12px;
+}
+
+.fa-google:hover {
+	color: #f17f3d;
+}
+
+.fa-facebook:hover {
+	color: #4285F4;
+}
+
+.fa-twitter:hover {
+	color: #00acee;
+}
+
+.fa-apple:hover {
+	color: #555555;
+}
+
+
+.btn {
+	background-color: #3f3d56;
+	margin-top: 12px;
+	color: white;
+	border: none;
+	font-size: 17px;
+	font-weight: 600;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+input {
+	font-size: 18px;
+	font-weight: 500;
+	outline: none;
+	border: none;
+	width: 91%;
+	height: 40px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+}
+
+::placeholder {
+	padding-left: 5px;
+	font-size: 16px;
+	font-weight: 600;
+
+}

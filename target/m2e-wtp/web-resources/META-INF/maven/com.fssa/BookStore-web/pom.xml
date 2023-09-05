@@ -53,6 +53,11 @@
 			<version>8.0.33</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fssa.Bookstore</groupId>
+			<artifactId>BookJSP</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>BookStore-web</finalName>

@@ -31,9 +31,7 @@ public class ViewBookServlet extends HttpServlet {
 		
 		try {
 			Book book  = new BookService().readBook(bookId); 
-			request.setAttribute("Book", book); // oru product matum view pana iru show panure SUPER BRO
-			
-			
+			request.setAttribute("Book", book); 
 			
 			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/view_book.jsp");
 			dis.forward(request, response);
