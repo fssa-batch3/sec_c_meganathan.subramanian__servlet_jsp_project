@@ -1,4 +1,4 @@
-package com.fssa.bookstore.servlet;
+package com.fssa.bookstore.userservlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,37 +10,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.coyote.Request;
+
 import com.fssa.bookstore.exception.ServiceException;
+import com.fssa.bookstore.logger.Logger;
 import com.fssa.bookstore.model.Book;
 import com.fssa.bookstore.service.BookService;
 
 /**
- * Servlet implementation class ListAllProduct
+ * Servlet implementation class BookListByCategy
  */
-@WebServlet("/ListAllProduct")
-public class ListAllProduct extends HttpServlet {
+@WebServlet("/BookListByCategy")
+public class BookListByCategy extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String catgyName = request.getParameter("Categy");
+		
 		BookService bookService = new BookService();
 		
 		try {
-			List<Book> bookList = bookService.getAllBook();
-			request.setAttribute("bookList", bookList);
+			List<Book> bookCategy = bookService.getAllBooksByCateName(catgyName);
+			Logger.info(bookCategy);
+			request.setAttribute("bookCategy", bookCategy);
+			RequestDispatcher rd = request.getRequestDispatcher("/booklistbycatgy.jsp");
+			rd.forward(request, response);
 		}
-		catch (ServiceException e) {
-		
+		catch(ServiceException | IOException e) {
+			Logger.info(e.getMessage());
 			e.printStackTrace();
 		}
-	
-		RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/list_all_product.jsp");
-		dis.forward(request, response);
-
-	}
-
-
+	} 
 
 }

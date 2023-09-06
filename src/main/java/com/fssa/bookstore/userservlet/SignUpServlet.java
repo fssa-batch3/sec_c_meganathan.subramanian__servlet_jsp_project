@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.bookstore.exception.DAOException;
+import com.fssa.bookstore.exception.ServiceException;
 import com.fssa.bookstore.logger.Logger;
 import com.fssa.bookstore.model.User;
 import com.fssa.bookstore.service.UserService;
@@ -65,7 +66,7 @@ public class SignUpServlet extends HttpServlet {
 			userService.addUser(user);
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 
-		} catch (IOException | DAOException | SQLException e) {
+		} catch (IOException | DAOException | SQLException | ServiceException e) {
 			e.printStackTrace();
 			Logger.info(e.getMessage());
 			

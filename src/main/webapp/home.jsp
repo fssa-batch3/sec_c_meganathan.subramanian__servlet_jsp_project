@@ -1,3 +1,4 @@
+<%@page import="com.fssa.bookstore.enums.Categories"%>
 <%@page import="com.fssa.bookstore.service.BookService"%>
 <%@page import="com.fssa.bookstore.model.Book"%>
 <%@page import="java.util.*"%>
@@ -9,8 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
+<link rel="stylesheet" href="assets/css/style.css">
 <meta charset="ISO-8859-1">
 <title>BOOK-STORE | HOMEPAGE</title>
 <link rel="shortcut icon"
@@ -39,20 +39,32 @@
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
+	<div class="slider-frame">
+		<div class="slide-image">
+			<div class="ad-img">
+				<img src="assets/images/ad 1.jfif" alt="ad 1">
+			</div>
+			<div class="ad-img">
+				<img src="assets/images/ad 2.jpeg" alt="ad 1">
+			</div>
+			<div class="ad-img">
+				<img src="assets/images/ad4.jpg" alt="ad 1">
+			</div>
+
+		</div>
+	</div>
 
 
 	<!----------------------------------- Trending books Section ------------------------------------->
 
-	<!-- wishlist icons -->
+	<!-- Wishlist icons -->
 
 	<!--  Below the code for mention the java code  -->
-	<%
-	BookService bookService = new BookService();
-	%>
-	<%
-	List<Book> bookList = bookService.getAllBook();
-	%>
 
+	<%
+	List<Book> bookCatgoryTamil = (List<Book>)request.getAttribute("ListTamilBooks");
+	%>
+	
 	<div class="trends">
 		<div class="section-head">
 			<h2>Tamil Edition Books</h2>
@@ -61,7 +73,7 @@
 		<hr>
 		<div class="books">
 			<%
-			for (Book listOfBooks : bookList) {
+			for (Book listOfBooks : bookCatgoryTamil) {
 			%>
 			<div class="Book_filter">
 				<div id="wishlist_icons" class="wish_icons">
@@ -87,7 +99,9 @@
 								&#8377
 								<%=listOfBooks.getBookPrice()%><s>&#8377 800</s>
 							</h3>
-							<a href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listOfBooks.getBookId()%>"><button>Buy Now</button></a>
+							<a
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listOfBooks.getBookId()%>"><button>Buy
+									Now</button></a>
 						</div>
 
 					</div>
@@ -99,6 +113,11 @@
 
 		</div>
 
+
+		<!--  I have already created that list all book Servlet and set the attribute 
+			Below the code i get it the Attiribute and run the server -->
+
+
 		<div class="arrow-right">
 			<i class="fa-solid fa-arrow-right"></i>
 		</div>
@@ -109,200 +128,67 @@
 
 	<!--------- Start The Best seller Book row -------------->
 
+	<%
+		List<Book> bookList = (List<Book>) request.getAttribute("listAllBook");
+		if (bookList != null) {
+	%>
+	
 	<div class="best-seller reveal">
 		<div class="section-head">
-			<h2 id="BestSeller">Best Seller</h2>
+			<h2 id="BestSeller">List all books</h2>
 			<a href="Pages/Books/self_help.html">See All</a>
 		</div>
 		<hr>
-		<div class="books1">
-			<div class="book-img">
-				<div class="trend_book">
-					<a href="Pages/products_details/secert detail.html"><img
-						src="https://m.media-amazon.com/images/I/81fdQIY6ykL.jpg"
-						alt="trend books"></a> <a href="Pages/orders/Wish_list.html"><input
-						type="button" value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>The Secret Book By Rhonda Byrne.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price : &#8377;120.00 <s>180.00</s>
-					</h3>
-					<a href="Pages/orders/Cart_list.html"><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<a href="Pages/products_details/48 laws detail.html"> <img
-						src="https://m.media-amazon.com/images/I/411yaMigwbL._SX498_BO1,204,203,200_.jpg"
-						alt="trend books"></a> <a href="Pages/orders/Wish_list.html"><input
-						type="button" value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>The 48 Laws Power Robbert Greene.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price : &#8377;120.00 <s>180.00</s>
-					</h3>
-					<a href="Pages/orders/Cart_list.html"><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<a href="Pages/products_details/can't hurt detail.html"><img
-						src="https://m.media-amazon.com/images/I/81gTRv2HXrL.jpg"
-						alt="trend books"></a> <a href="Pages/orders/Wish_list.html"><input
-						type="button" value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>Can't Hurt Me By David Goggins.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price : &#8377;120.00 <s>180.00</s>
-					</h3>
-					<a href="Pages/orders/Cart_list.html"><button>Buy Now</button></a>
-				</div>
-			</div>
+		<div class="books">
+			<%
+			for (Book listAllbook : bookList) {
+			%>
 
-			<div class="book-img">
-				<div class="trend_book">
-					<a href="Pages/products_details/power of habit detail.html"> <img
-						src="https://m.media-amazon.com/images/I/71ONWR6eXDL.jpg"
-						alt="trend books"></a> <a href="Pages/orders/Wish_list.html"><input
-						type="button" value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>The Power of Habit By Charles duhigg.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price : &#8377;120.00 <s>180.00</s>
-					</h3>
-					<a href="Pages/orders/Cart_list.html"><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<img src="https://m.media-amazon.com/images/I/81gTwYAhU7L.jpg"
-						alt="trend books"> <a href=""><input type="button"
-						value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>The Power of Your Subconsicous Mind</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price : &#8377;120.00 <s>180.00</s>
-					</h3>
-					<a href=""><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<img src="https://m.media-amazon.com/images/I/814L+vq01mL.jpg"
-						alt="trend books"> <a href=""><input type="button"
-						value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>Ikigai Chinese Method To Achieve Goal.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price : &#8377;120.00 <s>180.00</s>
-					</h3>
-					<a href=""><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<img src="https://m.media-amazon.com/images/I/813uPMOnskL.jpg"
-						alt="trend books"> <a href=""><input type="button"
-						value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>You Can By Geroge Mathew Adams.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price:&#8377; 120.00 <s>180.00</s>
-					</h3>
-					<a href=""><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<img src="https://m.media-amazon.com/images/I/71K+FclxRdL.jpg"
-						alt="trend books"> <a href=""><input type="button"
-						value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>Think Again By Adam Grant.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price:&#8377; 120.00 <s>180.00</s>
-					</h3>
-					<a href=""><button>Buy Now</button></a>
-				</div>
-			</div>
-			<div class="book-img">
-				<div class="trend_book">
-					<img src="https://m.media-amazon.com/images/I/71zytzrg6lL.jpg"
-						alt="trend books"> <a href=""><input type="button"
-						value="Add to Cart" class="add"></a>
-				</div>
-				<div class="book-info">
-					<p>The 5am Club By Robin Sharma.</p>
-					<div class="rating">
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-						<i class="fa-solid fa-star"></i>
-					</div>
-					<h3>
-						Price:&#8377; 120.00 <s>180.00</s>
-					</h3>
-					<a href=""><button>Buy Now</button></a>
-				</div>
-			</div>
-			-->
+			<div class="Book_filter">
+				<div id="wishlist_icons" class="wish_icons">
+					<i class="fa-sharp fa-regular fa-heart icon_wishlist"
+						id="wish_icon"></i>
+					<div class="book-img">
 
-		</div>
-
-		<div class="Row-2">
-			<i class="fa-solid fa-arrow-right"></i>
-		</div>
-		<div class="bottom-hr2">
-			<hr>
+						<div class="trend_book">
+							<a href=""><img src=<%=listAllbook.getBookImageUrl()%>
+								alt="Book img"></a><a href=""><input type="button"
+								value="add to cart" class="add"></a>
+						</div>
+						<div class="book-info">
+							<p>
+								<%=listAllbook.getBookName()%>
+							</p>
+							<div class="rating">
+								<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+									class="fa-solid fa-star"></i>
+							</div>
+							<h3>
+								&#8377
+								<%=listAllbook.getBookPrice()%><s>&#8377 800</s>
+							</h3>
+							<a
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listAllbook.getBookId()%>"><button>Buy
+									Now</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%
+			}
+			}
+			%>
 		</div>
 	</div>
+
+	<div class="Row-2">
+		<i class="fa-solid fa-arrow-right"></i>
+	</div>
+	<div class="bottom-hr2">
+		<hr>
+	</div>
+
 
 	<!-------- Banner image ----------->
 
@@ -329,20 +215,64 @@
 			</div>
 		</div>
 	</div>
-
-
+	
 	<!----------------------------- End of the banner img -------------------------------->
 
 	<!---------------------------- New Arrival book ------------------->
 
+	<%
+	List<Book> listFictionBook = (List<Book>)request.getAttribute("listFictionBooks");
+	%>
 	<div class="new-arrival">
 		<div class="section-head">
-			<h2>New Arrival Books</h2>
+			<h2>Our Best Fiction books</h2>
 			<a href="">See All</a>
 		</div>
 		<hr>
-		<div class="books2">
+		<div class="books">
 			<!-- append the books dynamic -->
+
+			<%
+			for (Book listFictionBooks : listFictionBook) {
+			%>
+
+			<div class="Book_filter">
+				<div id="wishlist_icons" class="wish_icons">
+					<i class="fa-sharp fa-regular fa-heart icon_wishlist"
+						id="wish_icon"></i>
+					<div class="book-img">
+
+						<div class="trend_book">
+							<a href=""><img src=<%=listFictionBooks.getBookImageUrl()%>
+								alt="Book img"></a><a href=""><input type="button"
+								value="add to cart" class="add"></a>
+						</div>
+						<div class="book-info">
+							<p>
+								<%=listFictionBooks.getBookName()%>
+							</p>
+							<div class="rating">
+								<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+									class="fa-solid fa-star"></i>
+							</div>
+							<h3>
+								&#8377
+								<%=listFictionBooks.getBookPrice()%><s>&#8377 800</s>
+							</h3>
+							<a
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listFictionBooks.getBookId()%>"><button>Buy
+									Now</button></a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<%
+			}
+			%>
+
+
 		</div>
 		<div class="row-3">
 			<i class="fa-solid fa-arrow-right"></i>
@@ -357,10 +287,13 @@
 
 	<!-------------- Fiction Books ----------->
 
-
+	<%
+	if (bookList != null) {
+		System.out.println(bookList);
+	%>
 	<div class="fiction">
 		<div class="section-head">
-			<h2>Our Best Fiction Books</h2>
+			<h2>New Arrival books</h2>
 			<a href="">See All</a>
 		</div>
 		<hr>
@@ -368,8 +301,49 @@
          book filter
          -->
 		<div class="books_filter">
-			<div class="books3">
+			<div class="books">
 				<!-- append the books dynamic -->
+
+				<%
+				for (Book newArrivalBooks : bookList) {
+				%>
+
+				<div class="Book_filter">
+					<div id="wishlist_icons" class="wish_icons">
+						<i class="fa-sharp fa-regular fa-heart icon_wishlist"
+							id="wish_icon"></i>
+						<div class="book-img">
+
+							<div class="trend_book">
+								<a href=""><img src=<%=newArrivalBooks.getBookImageUrl()%>
+									alt="Book img"></a><a href=""><input type="button"
+									value="add to cart" class="add"></a>
+							</div>
+							<div class="book-info">
+								<p>
+									<%=newArrivalBooks.getBookName()%>
+								</p>
+								<div class="rating">
+									<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+										class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+										class="fa-solid fa-star"></i>
+								</div>
+								<h3>
+									&#8377
+									<%=newArrivalBooks.getBookPrice()%><s>&#8377 800</s>
+								</h3>
+								<a
+									href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=newArrivalBooks.getBookId()%>"><button>Buy
+										Now</button></a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<%
+				}
+				}
+				%>
 			</div>
 		</div>
 		<div class="row-4">

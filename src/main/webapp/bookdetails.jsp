@@ -105,7 +105,7 @@
 					Height : <span><%=bookDetail.getBookHeight()%></span>
 				</h3>
 				<h3>
-					No of Pages : <span><%=bookDetail.getNoOfPages()%></span>
+					No of Pages : <span><%= bookDetail.getNoOfPages()%></span>
 				</h3>
 				<h3>
 					ISBN : <span><%=bookDetail.getisbn()%></span>

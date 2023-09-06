@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.bookstore.dao.UserDao;
 import com.fssa.bookstore.exception.DAOException;
+import com.fssa.bookstore.exception.ServiceException;
 import com.fssa.bookstore.logger.Logger;
+import com.fssa.bookstore.service.UserService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -29,16 +31,15 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		UserDao userDao = new UserDao();
+		UserService userService = new UserService();
 		try {
-			userDao.userLogin(email, password); {
-			response.sendRedirect(request.getContextPath()+"/home.jsp");
-			}
-			
-			
+			userService.loginUser(email, password); 
+			response.sendRedirect(request.getContextPath()+"/Index");
 		}
-		catch(IOException|DAOException|SQLException e) {
-			e.printStackTrace();
+		catch(IOException|DAOException|SQLException | ServiceException e) {
+			String errorMessage  = e.getMessage();
+			request.setAttribute("errorMessage", errorMessage);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 
