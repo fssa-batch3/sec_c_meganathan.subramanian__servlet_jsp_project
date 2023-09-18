@@ -2,15 +2,12 @@ package com.fssa.bookstore.userservlet;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.coyote.Request;
 
 import com.fssa.bookstore.exception.ServiceException;
 import com.fssa.bookstore.logger.Logger;
@@ -35,7 +32,7 @@ public class BookListByCategy extends HttpServlet {
 		BookService bookService = new BookService();
 		
 		try {
-			List<Book> bookCategy = bookService.getAllBooksByCateName(catgyName);
+			List<Book> bookCategy = bookService.getAllBooksByCatgy(catgyName);
 			Logger.info(bookCategy);
 			request.setAttribute("bookCategy", bookCategy);
 			RequestDispatcher rd = request.getRequestDispatcher("/booklistbycatgy.jsp");

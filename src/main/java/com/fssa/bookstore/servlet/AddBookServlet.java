@@ -102,14 +102,15 @@ public class AddBookServlet extends HttpServlet {
 		
 		// Below the code for send the all product to the Service
 		BookService bookService = new BookService();
-	
+
 		try { 
 			bookService.addBook(book);
 			response.sendRedirect(request.getContextPath()+"/ListAllProduct");
 		}
-		catch(ServiceException | IOException e) {
-			e.printStackTrace();
-			Logger.info(e.getMessage());
+		catch(ServiceException | IOException | IllegalArgumentException e) {
+			String errorMessage  = e.getMessage();
+			request.setAttribute("errorMessage", errorMessage);
+			request.getRequestDispatcher("add_product.jsp").forward(request, response);
 		}
 	
 	}

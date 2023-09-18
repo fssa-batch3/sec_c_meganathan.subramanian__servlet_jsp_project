@@ -1,0 +1,593 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+
+}
+
+button {
+	cursor: pointer;
+}
+
+
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-family: 'Nunito', sans-serif;
+}
+
+.navigation>ul li a {
+	color: black;
+	text-decoration: none;
+}
+
+
+
+/* -----------Create the navigation-------------- */
+.nav {
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.nav-logo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 110px;
+	position: fixed;
+	top: 0%;
+	width: 100%;
+	padding: 35px;
+	background-color: #e4ad4d;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+	z-index: 1;
+}
+
+.nav-logo img {
+	margin-top: 3px;
+}
+
+.navigation hr {
+	margin-bottom: 4px solid blue;
+	margin-top: 10px;
+	width: 84%;
+	height: 0;
+	margin-left: 90px;
+}
+
+.home-page {
+	margin-left: 178px;
+	margin-top: 20px;
+	border: 1px solid orange;
+	width: 260px;
+	font-weight: 800;
+}
+
+.home-page a {
+	font-size: 20px;
+	letter-spacing: 1px;
+	text-decoration: none;
+}
+
+.navi2 {
+	display: flex;
+	align-items: center;
+
+}
+
+.fonts {
+	display: flex;
+	list-style-type: none;
+}
+
+.navi2 ul li {
+	margin-right: 60px;
+	list-style-type: none;
+}
+
+.fa-regular,
+.fa-solid {
+	font-size: 45px;
+	color: whitesmoke;
+	font-weight: 300;
+}
+
+.fonts span {
+	position: absolute;
+	left: 84.3%;
+	top: 40%;
+	font-size: 20px;
+}
+
+.Lang_option {
+	display: none;
+	font-size: 19px;
+}
+
+.Lang_option li {
+	margin-top: 10px;
+	list-style-type: none;
+
+
+}
+
+.lang li:nth-child(1):hover .Lang_option {
+	display: block;
+
+}
+
+.lang {
+	border: 1px solid black;
+	border-radius: 5px;
+	font-size: 19px;
+	font-weight: 700;
+	height: 30px;
+	list-style-type: none;
+	display: block;
+	margin-right: 60px;
+	padding: 6px;
+
+}
+
+.lang li a {
+	margin-left: 15px;
+	padding-bottom: 12px;
+	text-decoration: none;
+	color: black;
+}
+
+.Explore-option {
+	display: none;
+	list-style-type: none;
+	line-height: 40px;
+	width: 230px;
+	border-radius: 12px;
+	margin-left: -10px;
+	z-index: 1;
+
+}
+
+.explore-menu:hover .Explore-option {
+	position: absolute;
+	display: block;
+	background-color: rgb(222, 222, 222);
+}
+
+.Explore-option li a:hover {
+	text-decoration: underline;
+	transition: 0.2s;
+}
+
+.Explore-option>li a {
+	margin-left: -45px;
+}
+
+.arts-menu {
+	display: none;
+}
+
+.Arts-option:hover .arts-menu {
+	display: block;
+	position: absolute;
+	background-color: rgb(222, 222, 222);
+	margin-top: -28px;
+	margin-left: 140px;
+
+}
+
+.arts-menu ol {
+	list-style-type: none;
+	width: 250px;
+
+}
+
+.profile {
+	display: none;
+	z-index: 1;
+}
+
+.profile-menu:hover .profile {
+	position: absolute;
+	display: block;
+	background-color: rgb(222, 222, 222);
+	border-radius: 12px;
+
+}
+
+.profile ol {
+	list-style-type: none;
+	margin-top: 15px;
+	margin-left: -50px;
+	width: 240px;
+}
+
+.profile ol li {
+	margin-bottom: 20px;
+}
+
+.profile i {
+	color: black;
+	font-size: 21px;
+	margin-right: 12px;
+}
+
+/* -------------- EDIT THE TOP SEARCH BAR ----------------  */
+
+
+.search_bar {
+	position: fixed;
+	top: 3%;
+	left: 18%;
+	z-index: 1;
+}
+
+.search_bar input {
+	padding: 13px;
+	font-size: 19px;
+	outline: none;
+	border-radius: 8px;
+	border: none;
+	width: 772px;
+}
+
+
+.navi1 img {
+	width: 50px;
+	color: white;
+	position: fixed;
+	top: 3%;
+	right: 30%;
+	z-index: 1;
+	background-color: #d3d3d3;
+	border-radius: 10%;
+	padding: 12px;
+
+	/* End of the search bar edit */
+}
+
+.navi1 ul li {
+	position: absolute;
+	left: 70%;
+	top: 3.2%;
+
+}
+
+/*----------Start the navigation------- */
+
+.navigation ul {
+	background-color: rgb(222, 222, 222);
+	padding: 25px;
+	display: flex;
+	margin-top: 90px;
+	height: 90px;
+	list-style-type: none;
+	border-top: 1px solid navy;
+}
+
+.navigation ul li {
+	font-size: 21px;
+	font-weight: 900;
+	margin-left: 76px;
+	margin-top: 8px;
+}
+
+.fa-caret-down {
+	font-size: 19px;
+	color: crimson;
+	margin-left: 4px;
+}
+
+.fa-sharp {
+	font-size: 19px;
+}
+
+/* -------- user profile edit ------------- */
+
+.fa-user {
+	margin-left: 10px;
+	font-size: 24px;
+	color: darkblue;
+}
+
+/*----- PROFILE EDIT --------*/
+
+
+.profile-img img {
+	width: 150px;
+	height: 150px;
+	margin-top: 15px;
+	border: 1px solid black;
+	border-radius: 50%;
+	margin-left: 65px;
+}
+
+.profile-box {
+	margin-left: 170px;
+	background-color: aliceblue;
+	border-radius: 5px;
+	width: 280px;
+	height: 530px;
+	margin-top: 30px;
+}
+
+.profile-box hr {
+	height: 0;
+	width: 80%;
+	margin-left: 30px;
+	margin-top: 1px solid grey;
+}
+
+
+.profile-img h3 {
+	margin: 24px auto;
+	font-size: 23px;
+	text-align: center;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.profile-options h2:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.profile-options {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 14px;
+	margin-left: 55px;
+	margin-top: 27px;
+}
+
+.profile-options h2 {
+	margin-bottom: 28px;
+	font-size: 21px;
+}
+
+.container {
+	display: flex;
+}
+
+.user-edit {
+	margin-left: 10px;
+	background-color: #a8b2cd;
+	margin-top: 31px;
+	border-radius: 3px;
+	height: 600px;
+
+}
+
+form {
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	margin-top: 20px;
+	margin-left: 20px;
+
+}
+
+.user-inp input {
+	margin: 17px auto;
+	height: 35px;
+	border: none;
+	font-weight: 500;
+	font-size: 18px;
+	padding-left: 10px;
+	outline: none;
+	width: 90%;
+	border-radius: 3px;
+	margin-left: 20px;
+}
+
+.first-inpt input {
+	width: 100%;
+}
+
+.user-inp input:focus {
+	border: 2px solid #584848;
+	border-radius: 3px;
+}
+
+.user-inp label {
+	font-size: 24px;
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: 600;
+	margin-left: 20px;
+	width: 164px;
+	display: inline-block;
+
+}
+
+.user-inp a {
+	margin-left: 10px;
+}
+
+.user-inp button {
+	height: 35px;
+	font-size: 16px;
+	font-weight: 600;
+	width: 180px;
+	border: none;
+	color: rgb(71, 51, 51);
+	border-radius: 2px;
+	background-color: white;
+	transition: 0.2s;
+	color: black;
+	margin-top: 10px;
+}
+
+.user-inp button:hover {
+	text-decoration: underline;
+	background-color: rgb(162, 168, 249);
+
+}
+
+
+.user-inp textarea {
+	font-size: 17px;
+	font-weight: 700;
+	resize: none;
+	width: 446px;
+	padding-left: 20px;
+	line-height: 25px;
+	border-radius: 5px;
+	margin-left: 20px;
+	margin-top: 12px;
+}
+
+
+
+.user-inp h1 {
+	text-align: center;
+	font-size: 32 px;
+	font-family: sans-serif, 'Times New Roman', Times, serif;
+	font-weight: 600;
+	margin-top: 20px;
+	transition: 0.2s;
+
+}
+
+.user {
+	width: 900px;
+}
+
+.user_edit_btn {
+	margin-top: 15px;
+	margin-left: 150px;
+}
+
+
+
+
+
+/*---------------start the footer content------ */
+footer {
+	width: 100%;
+	background-color: #000;
+	color: whitesmoke;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 60px 0 20px;
+	margin-top: 100px;
+	height: 310px;
+
+}
+
+.bookstore_logo img {
+	width: 200px;
+	max-width: 1000px;
+
+}
+
+.row {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.row ul li {
+	list-style-type: none;
+	margin: 4px;
+	margin-top: 10px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+footer h3 {
+	color: white;
+	margin-bottom: 20px;
+}
+
+.icons {
+	color: white;
+}
+
+.contact_us .useful_links {
+	align-items: center;
+}
+
+.icons i {
+	font-size: 33px;
+	padding-left: 30px;
+}
+
+.icons h3 {
+	margin-left: 70px;
+	color: red;
+	font-size: 20px;
+}
+
+.useful_links h3 {
+	margin-left: 5px;
+}
+
+.row ul li:hover {
+	text-decoration: underline;
+	color: crimson;
+}
+
+/* -----END OF THE FOOTER CONTENT-----*/
+.user_orders {
+	display: none;
+}
+
+.single_book {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.book_info {
+	/* border-style: groove; */
+	padding: 30px 50px;
+}
+
+.book_info h2 {
+	margin: -3px 0px 20px;
+	/* font-family:'Montserrat', sans-serif;  */
+}
+
+.book_img {
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	margin: 10px;
+}
+
+.status {
+	margin: 5px 50px 0px 50px;
+}
+
+.status p {
+	margin: 10px;
+	font-size: large;
+	font-weight: 500;
+}
+
+.horz_line {
+	color: gray;
+	background-color: gray;
+	width: 100%;
+	height: 3px;
+	border-radius: 2px;
+	border-width: 0px;
+}
+
+.head {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.horizantal_line {
+	margin-left: -195px;
+	margin-top: 40px;
+	color: gray;
+	background-color: gray;
+	width: 164%;
+	height: 3px;
+	border-radius: 2px;
+	border-width: 0px;
+
+}

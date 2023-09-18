@@ -25,6 +25,7 @@ public class SignUpServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -38,23 +39,23 @@ public class SignUpServlet extends HttpServlet {
 		User user = new User();
 		try {
 
-			if (name == null || name.trim().isEmpty()) {
+			if (name == null && name.trim().isEmpty()) {
 				Logger.info("Give name is not valid must give 2 to 20 characters");
 			} else {
 				user.setName(name);
 			}
 
-			if (email == null || email.trim().isEmpty()) {
+			if (email == null && email.trim().isEmpty()) {
 				Logger.info("Email is invalid Give @");
 			} else {
 				user.setEmail(email);
 			}
-			if (pass == null || pass.trim().isEmpty() || confirmPass == null || confirmPass.trim().isEmpty() || !pass.equals(confirmPass)) {
+			if (pass == null &&  pass.trim().isEmpty() && confirmPass == null && confirmPass.trim().isEmpty() && !pass.equals(confirmPass)) {
 			    Logger.info("Given password does not match or is empty");
 			} else {
 				user.setPassword(pass);
 			}
-			if (number == null || number.trim().isEmpty()) {
+			if (number == null && number.trim().isEmpty()) {
 				Logger.info("Given Number is not valid please mention +91");
 			} else {
 				user.setPhoneNumber(number);
@@ -66,13 +67,12 @@ public class SignUpServlet extends HttpServlet {
 			userService.addUser(user);
 			response.sendRedirect(request.getContextPath() + "/login.jsp");
 
-		} catch (IOException | DAOException | SQLException | ServiceException e) {
-			e.printStackTrace();
+		} catch (IOException | DAOException | SQLException | ServiceException | IllegalArgumentException e) {
 			Logger.info(e.getMessage());
-			
+			String errorMessage = e.getMessage();
+			request.setAttribute("errorMessage", errorMessage);
+
 		}
-		
-		
 	}
 
 }

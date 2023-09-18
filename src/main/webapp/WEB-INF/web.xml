@@ -3,5 +3,56 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>Combobook</servlet-name>
+		<display-name>Combobook</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.Combobook</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<display-name>Logout</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.Logout</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ProfileServlet</servlet-name>
+		<display-name>ProfileServlet</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.ProfileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateProfile</servlet-name>
+		<display-name>UpdateProfile</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.UpdateProfile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<display-name>DeleteServlet</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Combobook</servlet-name>
+		<url-pattern>/Combobook</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProfileServlet</servlet-name>
+		<url-pattern>/ProfileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateProfile</servlet-name>
+		<url-pattern>/UpdateProfile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/DeleteServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
+
