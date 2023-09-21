@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.fssa.bookstore.model.Book"%>
+<%@ page import="com.fssa.bookstore.model.User"%>
 <%@ page import="com.fssa.bookstore.service.BookService"%>
 
 <!DOCTYPE html>
@@ -38,13 +39,13 @@
 
 	<!---------------------- Start the product details page -------------->
 
+	
 	<%
 	Book bookDetail = (Book) request.getAttribute("bookDetails");
 	if (bookDetail != null) {
+		
 	%>
 	<main>
-
-
 		<div class="products">
 			<div class="product_img attitude_book">
 				<img src="<%=bookDetail.getBookImageUrl()%>" alt=" product_img">
@@ -60,8 +61,8 @@
 					<label><input type="number" value="1"></label>
 				</form>
 				<div class="btn-cart">
-					<a href="" class="btn">Add to Cart</a> <a href="" class="btn">Buy
-						Now</a>
+					<a href="" class="btn">Add to Cart</a>
+					 <a href="<%=request.getContextPath()%>/Payment?bookId=<%=bookDetail.getBookId()%>" class="btn">Buy Now</a>
 				</div>
 
 				<h2>Book Details</h2>
@@ -145,6 +146,7 @@
 	<%
 	BookService bookService = new BookService();
 	List<Book> bookCategy = bookService.getAllBooksByCatgy(bookDetail.getBookCategories().toString());
+	if(bookCategy != null){
 	%>
 	<div class="trends reveal">
 		<div class="section-head">
@@ -174,13 +176,14 @@
 						<%=bookCatgy.getBookPrice()%>
 						<s>180.00</s>
 					</h3>
-					<a
-						href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=bookCatgy.getBookId()%>"><button>Buy
-							Now</button></a>
+					<a href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=bookCatgy.getBookId()%>">
+						<button>Buy Now</button>
+					</a>
 				</div>
 			</div>
 			<%
 			}
+			}	
 			%>
 		</div>
 
@@ -259,10 +262,6 @@
 		<p style="text-align: center;">&#169;Copyright 2022-Meganathan</p>
 	</footer>
 	<!------------ END OF THE FOOTER CONTENT --------------------->
-
-</body>
-</html>
-
 
 </body>
 </html>

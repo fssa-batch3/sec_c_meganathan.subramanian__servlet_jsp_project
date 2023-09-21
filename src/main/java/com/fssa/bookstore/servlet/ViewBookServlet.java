@@ -27,17 +27,18 @@ public class ViewBookServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		int bookId = Integer.parseInt(request.getParameter("BookId"));
 		
 		try {
 			Book book  = new BookService().readBook(bookId); 
 			request.setAttribute("Book", book); 
 			
-			RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/view_book.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("/view_book.jsp");
 			dis.forward(request, response);
 		}
 		
-		catch(ServiceException  | DAOException e) {
+		catch(ServiceException | NumberFormatException e) {
 			e.printStackTrace();
 		}
 	}

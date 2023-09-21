@@ -607,7 +607,7 @@ footer h3 {
 
                                 <div class="user-phone-number">
                                     <label for="number">phone Number:</label><br> <input type="tel"
-                                        placeholder="1234567892" name="phonenumber" id="phone_number"
+                                       placeholder="1234567892" name="phonenumber" id="phone_number"
                                         value="<%=userDetails.getPhoneNumber()%>" maxlength="10" required disabled>
                                 </div>
                             </div>

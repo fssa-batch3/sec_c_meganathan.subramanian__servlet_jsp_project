@@ -1,15 +1,2 @@
-com\fssa\bookstore\userservlet\SignUpServlet.class
-com\fssa\bookstore\servlet\EditBookServlet.class
-com\fssa\bookstore\userservlet\BookListByCategy.class
-com\fssa\bookstore\userservlet\UpdateProfile.class
-com\fssa\bookstore\servlet\AddBookServlet.class
-com\fssa\bookstore\servlet\DeleteBookServlet.class
-com\fssa\bookstore\userservlet\ComboBooks.class
-com\fssa\bookstore\userservlet\Index.class
-com\fssa\bookstore\servlet\ViewBookServlet.class
 com\fssa\bookstore\userservlet\LoginServlet.class
-com\fssa\bookstore\servlet\UpdateBookServlet.class
-com\fssa\bookstore\userservlet\LogoutServlet.class
-com\fssa\bookstore\servlet\ListAllProduct.class
 com\fssa\bookstore\userservlet\ProfileServlet.class
-com\fssa\bookstore\userservlet\BookDetailsServlet.class

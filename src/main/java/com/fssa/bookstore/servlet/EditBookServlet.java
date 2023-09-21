@@ -35,7 +35,7 @@ public class EditBookServlet extends HttpServlet {
 			dis.forward(request, response);
 		}
 		
-		catch(ServiceException  | DAOException e) {
+		catch(ServiceException e) {
 			e.printStackTrace();
 		}
 		

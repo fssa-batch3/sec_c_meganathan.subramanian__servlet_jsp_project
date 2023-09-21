@@ -71,6 +71,7 @@ public class SignUpServlet extends HttpServlet {
 			Logger.info(e.getMessage());
 			String errorMessage = e.getMessage();
 			request.setAttribute("errorMessage", errorMessage);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 
 		}
 	}

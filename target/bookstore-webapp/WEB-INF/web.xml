@@ -28,6 +28,18 @@
 		<description></description>
 		<servlet-class>com.fssa.bookstore.userservlet.UpdateProfile</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<display-name>DeleteServlet</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PaymentServlet</servlet-name>
+		<display-name>PaymentServlet</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.PaymentServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Combobook</servlet-name>
 		<url-pattern>/Combobook</url-pattern>
@@ -43,6 +55,14 @@
 	<servlet-mapping>
 		<servlet-name>UpdateProfile</servlet-name>
 		<url-pattern>/UpdateProfile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/DeleteServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PaymentServlet</servlet-name>
+		<url-pattern>/PaymentServlet</url-pattern>
 	</servlet-mapping>
 </web-app>
 
