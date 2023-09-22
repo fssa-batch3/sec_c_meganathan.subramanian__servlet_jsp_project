@@ -46,7 +46,8 @@ public class DeleteServlet extends HttpServlet {
 			
 		}
 		catch(IOException | DAOException | SQLException | IllegalArgumentException e) {
-			Logger.info(e);
+			e.printStackTrace();
+			Logger.info(e.getMessage());
 		}
 		
 	}

@@ -52,6 +52,24 @@
 		<description></description>
 		<servlet-class>com.fssa.bookstore.userservlet.ListAllOrders</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>UserOrderServlet</servlet-name>
+		<display-name>UserOrderServlet</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.UserOrderServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SimilarBookCategory</servlet-name>
+		<display-name>SimilarBookCategory</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.SimilarBookCategory</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CancelOrder</servlet-name>
+		<display-name>CancelOrder</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.userservlet.CancelOrder</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Combobook</servlet-name>
 		<url-pattern>/Combobook</url-pattern>
@@ -84,5 +102,77 @@
 		<servlet-name>ListAllOrders</servlet-name>
 		<url-pattern>/ListAllOrders</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserOrderServlet</servlet-name>
+		<url-pattern>/UserOrderServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SimilarBookCategory</servlet-name>
+		<url-pattern>/SimilarBookCategory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CancelOrder</servlet-name>
+		<url-pattern>/CancelOrder</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!-- Below the code for -->
+
+
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>404</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>405</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>500</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>501</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>401</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>502</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>503</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>504</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>599</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/error_handle.jsp</location>
+	</error-page>
 </web-app>
 

@@ -205,6 +205,61 @@
         .hr {
             margin-top: 10px;
         }
+        
+        
+        
+        /* Below the code for the popup */
+        .popup {
+      width: 400px;
+      background: #fff;
+      border-radius: 6px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%)scale(0.1);
+      text-align: center;
+      padding: 0px 30px 30px;
+      color: #333;
+      visibility: hidden;
+      transition: transform 0.4s, top 0.4s;
+    }
+
+    .open-popup {
+      visibility: visible;
+      top: 50%;
+      transform: translate(-50%, -50%)scale(1);
+    }
+
+    .popup img {
+      width: 100px;
+      margin-top: -50px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px(0 0 0 0.2px);
+    }
+
+    .popup h2 {
+      font-size: 38px;
+      font-weight: 500;
+      margin: 30px 0px 10px;
+    }
+
+    .popup p {
+      margin-top: 15px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .popup button {
+      width: 100%;
+      margin-top: 40px;
+      padding: 10px 0;
+      background: #04AA6D;
+      color: #fff;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 5px 5px(0 0 0 0.2px);
+    }
     </style>
 </head>
 
@@ -215,8 +270,7 @@
 	HttpSession httpSession = request.getSession(false);
 	User userDetails = (User) httpSession.getAttribute("logInUserDetails");
 	Book bookDetails = (Book) request.getAttribute("bookDetails");
-	if(userDetails != null && bookDetails != null ){
-		Logger.info(userDetails.toString());
+	if(userDetails != null || bookDetails != null ){
 	%>
 
 	<form action="<%=request.getContextPath()%>/Order" method="post">
@@ -297,7 +351,7 @@
                 <div class="qty-price">
                     <div class="quantity">
                         <label>Qty</label>
-                         <input id="qty" type="number" value="1" min="1" max="10" name="qty" />
+                         <input id="qty" type="number" step="1" value="1" min="1" max="10" name="qty" />
                     </div>
                     <div class="price">
                         <p>&#8377; <%= bookDetails.getBookPrice()  %></p>
@@ -312,7 +366,7 @@
             </div>
             <div class="order">
                 <p>Total</p>
-                <p>&#8377; <%= bookDetails.getBookPrice() %> </p>
+                <p id="totalAmount">&#8377; <%= bookDetails.getBookPrice() %> </p>
             </div>
             <button id="order_button" type="submit">Place Order</button>
              <div class="payment_mode">
@@ -320,13 +374,53 @@
                 <label class="cod">cash on delivery</label>
         </div>
         </div>
-       
+      
     </div>
     </form>
     <%
 	}
     %>
-	
+   <!-- Add this script tag inside your HTML's <head> section -->
+<!-- Add this script tag inside your HTML's <head> section -->
+<script>
+    // Function to update the total amount based on the quantity
+    function updateTotalAmount() {
+        // Get the quantity input element and the total amount element
+        const qtyInput = document.getElementById('qty');
+        const totalAmount = document.getElementById('totalAmount');
+        
+        // Get the book price and parse it as a float
+        const bookPrice = parseFloat('<%= bookDetails.getBookPrice() %>');
+        
+        // Get the quantity value or default to 1 if empty or not a number
+        let quantity = parseInt(qtyInput.value);
+        if (isNaN(quantity) || quantity < 1) {
+            quantity = 1; // Default to 1 if NaN or less than 1
+        }
+        else if(quantity > 10){
+        	quantity = 10;
+        }
+        // Update the quantity input with the sanitized value
+        qtyInput.value = quantity;
+        
+        // Calculate the total amount
+        const total = bookPrice * quantity;
+        
+        // Update the total amount element with the calculated total
+        totalAmount.textContent =  total.toFixed(2); // Displaying total with 2 decimal places
+    }
+    
+    // Add an event listener to the quantity input element
+    const qtyInput = document.getElementById('qty');
+    qtyInput.addEventListener('input', updateTotalAmount);
+    
+    // Call the updateTotalAmount function initially to set the initial total amount
+    updateTotalAmount();
+</script>
+
+   
+
 </body>
+
 
 </html>

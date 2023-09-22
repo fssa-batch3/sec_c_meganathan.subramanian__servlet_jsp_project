@@ -78,6 +78,7 @@ input {
 	<%
 	// get the attribute to where we set  
 	Book book = (Book) request.getAttribute("Book");
+	if(book != null){
 	%>
 
 	
@@ -198,6 +199,9 @@ input {
 		</form>
 		<a href="<%= request.getContextPath()%>/ListAllProduct"><button  type="submit">Back</button></a>
 	</div>
+	<%
+	}
+	%>
 
 </body>
 </html>

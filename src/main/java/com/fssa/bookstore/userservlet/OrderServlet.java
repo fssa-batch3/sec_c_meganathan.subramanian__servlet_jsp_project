@@ -52,16 +52,15 @@ public class OrderServlet extends HttpServlet {
 			order.setBookName(bookName);
 			order.setQuantity(Integer.parseInt(qty));
 			orderService.addOrder(order);
-			Logger.info(order.toString());
-			Logger.info(order.toString());
 			
-			request.setAttribute("orderDetails", order);
-			RequestDispatcher rd = request.getRequestDispatcher("/order.jsp");
-			rd.forward(request, response);	
+			response.sendRedirect(request.getContextPath()+ "/order_confirmation.jsp");
+//			request.setAttribute("orderDetails", order);
+//			RequestDispatcher rd = request.getRequestDispatcher("/order.jsp");
+//			rd.forward(request, response);	
 			
-		} catch (ServiceException | NumberFormatException e) {
-			Logger.info(e);
-			e.getMessage();
+		} catch (ServiceException | NumberFormatException | IOException e) {
+			e.printStackTrace();
+			Logger.info(e.getMessage());
 		}
 	}
 

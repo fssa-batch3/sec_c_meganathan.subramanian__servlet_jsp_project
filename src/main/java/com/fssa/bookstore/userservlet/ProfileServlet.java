@@ -28,13 +28,15 @@ public class ProfileServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession();
 		String emailId = (String) httpSession.getAttribute("loggedInEmail"); 
 		Logger.info(emailId);
-
+		
 		try {
 			User userDetails = new UserService().loginUser(emailId);
 			request.setAttribute("userDetails", userDetails);
 			RequestDispatcher rd = request.getRequestDispatcher("/profilepage.jsp");
 			rd.forward(request, response);
 		} catch (IOException | ServiceException e) {
+//			response.sendRedirect(request.getContextPath() +"/404.jsp");
+			e.printStackTrace();
 			Logger.info(e.getMessage());
 		}
 

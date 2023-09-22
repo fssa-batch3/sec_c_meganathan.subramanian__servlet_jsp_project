@@ -33,12 +33,12 @@ public class BookListByCategy extends HttpServlet {
 		
 		try {
 			List<Book> bookCategy = bookService.getAllBooksByCatgy(catgyName);
-			Logger.info(bookCategy);
+
 			request.setAttribute("bookCategy", bookCategy);
 			RequestDispatcher rd = request.getRequestDispatcher("/booklistbycatgy.jsp");
 			rd.forward(request, response);
 		}
-		catch(ServiceException | IOException e) {
+		catch(ServiceException | IOException | ServletException e) {
 			Logger.info(e.getMessage());
 			e.printStackTrace();
 		}

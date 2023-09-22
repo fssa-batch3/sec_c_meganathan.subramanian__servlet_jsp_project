@@ -42,7 +42,9 @@ public class PaymentServlet extends HttpServlet {
 				RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/payment.jsp");
 				rd.forward(request, response);
 			} catch (ServiceException | NumberFormatException e) {
+//				response.sendRedirect(request.getContextPath() +"/404.jsp");
 				e.printStackTrace();
+				Logger.info(e.getMessage());
 			}
 		}
 	}

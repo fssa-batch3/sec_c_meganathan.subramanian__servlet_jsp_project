@@ -86,8 +86,7 @@
 
 						<div class="trend_book">
 							<a href=""><img src=<%=listOfBooksTamil.getBookImageUrl()%>
-								alt="Book img"></a>
-								<a href=""><input type="button"
+								alt="Book img"></a> <a href=""><input type="button"
 								value="add to cart" class="add"></a>
 						</div>
 						<div class="book-info">
@@ -104,7 +103,8 @@
 								<%=listOfBooksTamil.getBookPrice()%><s>&#8377 800</s>
 							</h3>
 							<a
-								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listOfBooksTamil.getBookId()%>"><button>View Details</button></a>
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listOfBooksTamil.getBookId()%>&categy=<%= listOfBooksTamil.getBookCategories()%>"><button>View
+									Details</button></a>
 						</div>
 
 					</div>
@@ -112,7 +112,7 @@
 			</div>
 			<%
 			}
-			}
+			} 
 			%>
 
 		</div>
@@ -120,7 +120,6 @@
 
 		<!--  I have already created that list all book Servlet and set the attribute 
 			Below the code i get it the Attiribute and run the server -->
-
 
 		<div class="arrow-right">
 			<i class="fa-solid fa-arrow-right"></i>
@@ -173,14 +172,16 @@
 								<%=listAllbook.getBookPrice()%><s>&#8377 800</s>
 							</h3>
 							<a
-								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listAllbook.getBookId()%>"><button>View Details</button></a>
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listAllbook.getBookId()%>&categy=<%=listAllbook.getBookCategories()%>"><button>View
+									Details</button></a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<%
 			}
-			}
+			} 
+
 			%>
 		</div>
 	</div>
@@ -265,7 +266,8 @@
 								<%=listFictionBooks.getBookPrice()%><s>&#8377 800</s>
 							</h3>
 							<a
-								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listFictionBooks.getBookId()%>"><button>View Details</button></a>
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listFictionBooks.getBookId()%>&categy=<%=listFictionBooks.getBookCategories()%>"><button>View
+									Details</button></a>
 						</div>
 
 					</div>
@@ -337,7 +339,8 @@
 									<%=newArrivalBooks.getBookPrice()%><s>&#8377 800</s>
 								</h3>
 								<a
-									href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=newArrivalBooks.getBookId()%>"><button>View Details</button></a>
+									href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=newArrivalBooks.getBookId()%>&categy=<%= newArrivalBooks.getBookCategories()%>"><button>View
+										Details</button></a>
 							</div>
 
 						</div>

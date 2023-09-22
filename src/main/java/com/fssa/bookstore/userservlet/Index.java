@@ -37,9 +37,10 @@ public class Index extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
 			rd.forward(request, response);
 		}
-		catch(IOException | ServletException |ServiceException e) {
-			 Logger.info(e.getMessage());
+		catch(IOException | ServletException | ServiceException e) {
+
 			e.printStackTrace();
+			Logger.info(e.getMessage());
 		}
 		
 	}

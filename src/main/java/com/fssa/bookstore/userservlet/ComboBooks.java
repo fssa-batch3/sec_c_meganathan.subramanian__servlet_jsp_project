@@ -32,14 +32,15 @@ public class ComboBooks extends HttpServlet {
 
 		try {
 			List<Book> ComboBooks = bookService.getAllBooksByCatgy(catgyName);
-			Logger.info(ComboBooks);
+
 			request.setAttribute("Combobooks", ComboBooks);
 			RequestDispatcher rd = request.getRequestDispatcher("/combobooks.jsp");
 			rd.forward(request, response);
 			
 		} catch (ServiceException | IOException | ServletException e) {
-			Logger.info(e.getMessage());
+//			response.sendRedirect(request.getContextPath() +"/404.jsp");
 			e.printStackTrace();
+			Logger.info(e.getMessage());
 		}
 	}
 

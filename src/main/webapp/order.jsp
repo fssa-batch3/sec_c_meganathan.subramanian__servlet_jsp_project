@@ -1,3 +1,5 @@
+<%@page import="com.fssa.bookstore.logger.Logger"%>
+<%@page import="java.util.List"%>
 <%@page import="com.fssa.bookstore.model.Orders"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -210,6 +212,15 @@ body {
 
 .user_orders {
 	margin-left: 50px;
+	padding: 1.5vh 3vw 1.5vh 1vh;
+}
+
+.order-container {
+	max-height: 80vh;
+	overflow-y: scroll;
+	padding: 2vh 2vw 2vh 2vw;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .first_prod {
@@ -218,7 +229,7 @@ body {
 	margin-top: 12px;
 	border-style: groove;
 	border-radius: 4px;
-	width: 95%;
+	width: 100%;
 	margin-bottom: 40px;
 	margin-top: 30px;
 	padding: 18px;
@@ -227,7 +238,7 @@ body {
 }
 
 .status {
-	margin-left: 62px;
+	margin-left: 48px;
 }
 
 .status h2 {
@@ -248,10 +259,11 @@ body {
 	margin-left: 12px;
 	font-size: 19px;
 	font-weight: 600;
+	margin-top: -8vh;
 }
 
 .address p {
-	margin-top: 15px;
+	margin-top: 12px;
 	font-size: 19px;
 	font-weight: 600;
 }
@@ -273,6 +285,19 @@ body {
 	color: black;
 	z-index: 1;
 }
+.no-order-img img{
+width: 590px;
+margin-left:200px;
+}
+.no-order-img h2{
+color: grey;
+font-size: 34px;
+text-align: center;
+letter-spacing: 1px;
+margin-left: 180px;
+margin-top: -65px;
+}
+
 </style>
 </head>
 
@@ -282,15 +307,8 @@ body {
 	<!--  append the header by dynamic by js -->
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<%
-	Orders orders = (Orders) request.getAttribute("orderDetails");
-	if (orders != null) {
-	%>
-	<div class="home-page">
-		<a href="../../index.html">home></a> <a href="../Books/self_help.html">products></a>
-		<a href="../Account/edit-profile.html">Account</a>
-	</div>
 
+<div>
 	<!------ START THE PROFILE CONTENT ---------------->
 	<div class="container">
 		<div class="edit-profile">
@@ -314,46 +332,96 @@ body {
 		</div>
 
 		<!------------ START THE EDIT CONTENT  ------------->
+		<%
+		List<Orders> myOrder = (List<Orders>) request.getAttribute("myOrder");
+		if (myOrder != null && !myOrder.isEmpty()) {
+		%>
 
 		<div class="user_orders">
 			<h1 class="head">My Orders:</h1>
-			<div class="order_info">
-				<div class="single_prod">
-					<div class="first_prod">
-						<div class="prod_img">
-							<img src="<%=orders.getBookImgUrl()%>" />
-						</div>
-						<div class="status">
-							<h2>Status : pending</h2>
-							<p id="product_name"><%=orders.getBookName()%></p>
-							<p>
-								Price -
-								<%=orders.getPrice()%></p>
-							<p id="product_qunatity">
-								Quantity -
-								<%=orders.getQuantity()%></p>
-							<p id="Order_id">
-								Order Id -
-								<%=orders.getId()%></p>
-							<p id="order_date">Ordered Date - 27/03/2023</p>
-						</div>
-						<div class="address">
-							<label id="" for="address">Address:</label>
-							<p><%=orders.getAddress()%></p>
 
-							<p>Payment mode -(COD)</p>
+			<div class="order-container">
+				<%
+				for (Orders orderDetail : myOrder) {
+				%>
+				<div class="order_info">
+
+					<div class="single_prod">
+
+						<div class="first_prod">
+
+							<div class="prod_img">
+
+								<img src="<%=orderDetail.getBookImgUrl()%>" />
+							</div>
+
+							<div class="status">
+
+								<p id="product_name"><%=orderDetail.getBookName()%></p>
+								<p>
+									Price -
+									<%=orderDetail.getPrice()%></p>
+								<p id="product_qunatity">
+									Quantity -
+									<%=orderDetail.getQuantity()%></p>
+								<p id="Order_id">
+									Order Id -
+									<%=orderDetail.getId()%></p>
+								<p id="order_date">Ordered Date :</P>
+								<h4><%=orderDetail.getOrderDate()%></h4>
+							</div>
+							<div class="address">
+								<label id="" for="address">Address:</label>
+								<p><%=orderDetail.getAddress()%></p>
+
+								<p>Payment mode -(COD)</p>
+
+								<%
+								if (!orderDetail.isStatus()) {
+								%>
+								<p>Status - Canceled</p>
+								<%
+								} else {
+								%>
+
+								<p>Status - Not deliverd</p>
+								<%
+								}
+								%>
+
+								<a
+									href="<%=request.getContextPath()%>/cancel_order?orderId=<%=orderDetail.getId()%>"><button>Cancel
+										order?</button></a>
+
+							</div>
+
 
 						</div>
+
 
 					</div>
-				</div>
 
+				</div>
+				<%
+				}
+				%>
 			</div>
+
 		</div>
+	</div>
+
+	<%
+	} else {
+	%>
+	<div class="no-order-img">
+		<img
+			src="<%= request.getContextPath()%>/assets/images/No-order.jpg">
+			<h2>Look like you're not order yet anything !</h2>
 	</div>
 	<%
 	}
 	%>
+	</div>
 
 
 

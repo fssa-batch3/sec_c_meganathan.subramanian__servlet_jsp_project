@@ -45,8 +45,8 @@ public class LoginServlet extends HttpServlet {
 //			Below the code for create the new session
 			HttpSession httpSession = request.getSession();
 			httpSession.setAttribute("loggedInEmail", email);
-			Logger.info(email);
 			httpSession.setAttribute("logInUserDetails", user); 
+			Logger.info("succes");
 			Logger.info(user);
 			response.sendRedirect(request.getContextPath() + "/Index");
 		} catch (ServiceException | InvalidInputException  e) {

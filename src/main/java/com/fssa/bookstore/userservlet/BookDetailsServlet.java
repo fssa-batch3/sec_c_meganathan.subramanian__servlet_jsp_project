@@ -29,17 +29,22 @@ public class BookDetailsServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String bookId = request.getParameter("bookId");
+		String bookCategyName = request.getParameter("categy");
 
 		try {
 			Book bookDetails = new BookService().readBook(Integer.parseInt(bookId));
+			List<Book> bookCategy = new BookService().getAllBooksByCatgy(bookCategyName);
+			 
 			request.setAttribute("bookDetails", bookDetails);
-			Logger.info("Get the Bookdetatils " + bookDetails);
+			request.setAttribute("bookListByCategy", bookCategy);
 
-			RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/bookdetails.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/bookdetails.jsp");
 			rd.forward(request, response);
 
-		} catch (ServiceException e) {
+		} catch (ServiceException | NumberFormatException | ServletException | IOException  e) {
+//			response.sendRedirect(request.getContextPath() +"/error_handle.jsp");
 			e.printStackTrace();
+			Logger.info(e.getMessage());
 		}
 
 	}

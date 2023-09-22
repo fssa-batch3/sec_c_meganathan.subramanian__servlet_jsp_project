@@ -76,6 +76,7 @@ h1 {
 	<%
 	// get the attribute to where we set  
 	Book book = (Book) request.getAttribute("Book");
+	if(book != null){
 	%>
 
 	<form action="updatebookServlet" method="post">
@@ -224,6 +225,9 @@ h1 {
 			</div>
 		</div>
 	</form>
+	<%
+	}
+	%>
 
 
 </body>

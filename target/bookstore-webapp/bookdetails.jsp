@@ -1,7 +1,10 @@
+<%@page import="com.fssa.bookstore.userservlet.BookListByCategy"%>
+<%@page import="com.mysql.cj.jdbc.util.BaseBugReport"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.fssa.bookstore.model.Book"%>
+<%@ page import="com.fssa.bookstore.model.User"%>
 <%@ page import="com.fssa.bookstore.service.BookService"%>
 
 <!DOCTYPE html>
@@ -29,6 +32,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOOKS-STORE</title>
+<style type="text/css">
+.product-notfound {
+	width: 700px;
+	margin-left: 370px;
+	margin-top: 50px;
+}
+</style>
 </head>
 
 <body>
@@ -38,13 +48,13 @@
 
 	<!---------------------- Start the product details page -------------->
 
+
 	<%
 	Book bookDetail = (Book) request.getAttribute("bookDetails");
-	if (bookDetail != null) {
+	List<Book> bookListCategy = (List<Book>) request.getAttribute("bookListByCategy");
+	if (bookDetail != null && bookListCategy != null) {
 	%>
 	<main>
-
-
 		<div class="products">
 			<div class="product_img attitude_book">
 				<img src="<%=bookDetail.getBookImageUrl()%>" alt=" product_img">
@@ -56,12 +66,10 @@
 				<h4>
 					&#8377;<%=bookDetail.getBookPrice()%><s>&#8377;200.00Off </s>
 				</h4>
-				<form>
-					<label><input type="number" value="1"></label>
-				</form>
 				<div class="btn-cart">
-					<a href="" class="btn">Add to Cart</a>
-					 <a href="<%=request.getContextPath()%>/Payment?bookId=<%=bookDetail.getBookId()%>" class="btn">Buy Now</a>
+					<a href="" class="btn">Add to Cart</a> <a
+						href="<%=request.getContextPath()%>/Payment?bookId=<%=bookDetail.getBookId()%>"
+						class="btn">Buy Now</a>
 				</div>
 
 				<h2>Book Details</h2>
@@ -105,7 +113,7 @@
 					Height : <span><%=bookDetail.getBookHeight()%></span>
 				</h3>
 				<h3>
-					No of Pages : <span><%= bookDetail.getNoOfPages()%></span>
+					No of Pages : <span><%=bookDetail.getNoOfPages()%></span>
 				</h3>
 				<h3>
 					ISBN : <span><%=bookDetail.getisbn()%></span>
@@ -135,18 +143,11 @@
 		</div>
 		<hr>
 	</div>
-	<%
-	}
-	%>
 
 
 	<!---------- Trending books section ----------->
 
-	<%
-	BookService bookService = new BookService();
-	List<Book> bookCategy = bookService.getAllBooksByCatgy(bookDetail.getBookCategories().toString());
-	if(bookCategy != null){
-	%>
+
 	<div class="trends reveal">
 		<div class="section-head">
 			<h2>Similar Books</h2>
@@ -155,7 +156,7 @@
 		<hr>
 		<div class="books">
 			<%
-			for (Book bookCatgy : bookCategy) {
+			for (Book bookCatgy : bookListCategy) {
 			%>
 			<div class="book-img">
 				<div class="trend_book">
@@ -175,14 +176,14 @@
 						<%=bookCatgy.getBookPrice()%>
 						<s>180.00</s>
 					</h3>
-					<a href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=bookCatgy.getBookId()%>">
+					<a
+						href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=bookCatgy.getBookId()%>">
 						<button>Buy Now</button>
 					</a>
 				</div>
 			</div>
 			<%
 			}
-			}		
 			%>
 		</div>
 
@@ -195,6 +196,15 @@
 		</div>
 
 	</div>
+	<%
+	} else {
+	%>
+	<img alt=""
+		src="https://bagbazaars.com/assets/img/no-product-found.png"
+		class="product-notfound">
+	<%
+	}
+	%>
 
 
 	<!------------- Start the Newsletter forms -------------->

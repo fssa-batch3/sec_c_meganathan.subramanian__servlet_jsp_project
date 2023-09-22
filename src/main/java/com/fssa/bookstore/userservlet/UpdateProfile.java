@@ -54,7 +54,9 @@ public class UpdateProfile extends HttpServlet {
 //			response.sendRedirect(request.getContextPath() + "/profilepage.jsp");
 
 		} catch (ServiceException | IOException e) {
+//			response.sendRedirect(request.getContextPath() +"/404.jsp");
 			e.printStackTrace();
+			Logger.info(e.getMessage());
 		}
 	}
 }

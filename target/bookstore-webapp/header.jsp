@@ -147,7 +147,7 @@ if (isLoginIn == false) {
 					<li><a href="<%=request.getContextPath()%>/profile">
 					<i class="fa-solid fa-pen-to-square"></i>Edit Profile</a></li>
 					<li><a href="#"><i class="fa-solid fa-message"></i>Inbox</a></li>
-					<li><a href="#"><i class="fa-solid fa-bars"></i>Setting</a></li>
+					<li><a href="<%= request.getContextPath()%>/ListAllOrder"><i class="fa-solid fa-bars"></i>My orders</a></li>
 					<li id="log-out"><a href="<%=request.getContextPath() +"/LogoutServlet"%>"><i
 							class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
 				</ol>

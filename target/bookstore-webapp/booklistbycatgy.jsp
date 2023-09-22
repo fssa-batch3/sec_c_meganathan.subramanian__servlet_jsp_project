@@ -92,7 +92,8 @@
 			</div>
 			
 			<% 
-			List<Book> bookCategy = (List<Book>) request.getAttribute("bookCategy");			
+			List<Book> bookCategy = (List<Book>) request.getAttribute("bookCategy");	
+			if(bookCategy != null){
 			
 			%>
 			<div class="books2">
@@ -122,6 +123,7 @@
 					</div>
 				</div>
 				<%
+				}
 				}
 				%>
 			</div>

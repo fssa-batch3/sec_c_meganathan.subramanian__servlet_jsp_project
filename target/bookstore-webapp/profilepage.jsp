@@ -714,7 +714,7 @@ footer h3 {
 			<%
 			}
 			%>
-			<div class="user_orders">
+		<!-- 	<div class="user_orders">
 				<h1 class="head">My Orders</h1>
 				<div class="book_info">
 					<h2>Order Status : Pending...</h2>
@@ -744,7 +744,7 @@ footer h3 {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 

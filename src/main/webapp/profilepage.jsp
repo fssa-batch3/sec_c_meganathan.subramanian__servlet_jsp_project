@@ -528,7 +528,7 @@ footer h3 {
 							<div class="user-name">
 								<label for="name">Name :</label><br> <input type="text"
 									name="name" id="name" placeholder="Username"
-									value="<%= userDetails.getName()%>" pattern="^[a-zA-Z]{4,15}$"
+									value="<%= userDetails.getName() != null ? userDetails.getName() : ""%>" pattern="^[a-zA-Z]{4,15}$"
 									required disabled>
 									<input type="text" hidden="" value="<%= userDetails.getId()%>">
 							</div>
@@ -537,7 +537,7 @@ footer h3 {
 								<label for="last">Password :</label><br> <input
 									type="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/g"
 									id="password" placeholder="*********" disabled required
-									name="password" value="<%=userDetails.getPassword()%>">
+									name="password" value="<%=userDetails.getPassword() != null ? userDetails.getPassword() : "" %>">
 							</div>
 							<div class="user-email">
 								<label for="email">Email :</label><br> <input type="email"
@@ -556,31 +556,31 @@ footer h3 {
 						<div class="second-inpt">
 							<div class="user-address">
 								<label for="adreess">address :</label><br>
-								<textarea required cols="30" rows="4" id="user_address" disabled><%=userDetails.getAddress()%>
+								<textarea required cols="30" rows="4" id="user_address" disabled><%=userDetails.getAddress() != null ? userDetails.getAddress() : "" %>
                          </textarea>
 							</div>
 							<div class="user_state">
 								<label for="user_state">State :</label><br> <input
 									type="text" name="state" id="user_state"
 									placeholder="Enter your State" pattern="[A-Za-z]{1,10}"
-									value="<%=userDetails.getState()%>" disabled required>
+									value="<%=userDetails.getState() != null ? userDetails.getState() : ""%>" disabled required>
 							</div>
 							<div class="user_city">
 								<label for="User_city">City : </label><br> <input
 									type="text" name="city" id="user_city"
 									placeholder="Enter your city" pattern="[A-Za-z]{1,10}"
-									value="<%=userDetails.getCity()%>" disabled required>
+									value="<%=userDetails.getCity() != null ? userDetails.getCity() : ""%>" disabled required>
 							</div>
 							<div class="user_pincode">
 								<label for="user_pincode">Pincode : </label><br> <input
 									type="text" name="pincode" id="user_pincode"
-									placeholder="600081" value="<%=userDetails.getPincode()%>"
+									placeholder="600081" value="<%=userDetails.getPincode() != null ? userDetails.getPincode() : ""%>"
 									pattern="[0-9]{7}" max="6" required disabled>
 							</div>
 						</div>
 					</form>
 					<button id="open-popup" type="button">Update profile</button>
-					<a href="deleteServlet?email=<%=userDetails.getEmail()%>"><button type="button">Delete</button></a>
+					<a href="deleteServlet?email=<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>"><button type="button">Delete</button></a>
 				</div>
 				<!-- Below the code create the new form -->
 				<!-- <div class="userUpdateDiv">
@@ -650,26 +650,20 @@ footer h3 {
 								<div class="user-name">
 									<label for="name">Name :</label><br> <input type="text"
 										name="name" id="name" placeholder="Username"
-										value="<%=userDetails.getName()%>"
+										value="<%= userDetails.getName() != null ? userDetails.getName() : ""%>"
 										pattern="^[a-zA-Z]{4,15}$" required>
 								</div>
 
-								<div class="user-password">
-									<label for="last">Password :</label><br> <input
-										type="password" id="password" placeholder="*********" required
-										name="password" value="<%=userDetails.getPassword()%>">
-								</div>
-
 								<div class="user-email" >
-									<label for="email">Email :</label><br> <input type="email"  hidden=""
+									<br> <input type="email"  hidden=""
 										name="email" placeholder="example@gmail.com" id="email"
-										value="<%=userDetails.getEmail()%>" required>
+										value="<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>" required>
 								</div> 
 
 								<div class="user-phone-number">
 									<label for="number">Phone Number:</label><br> <input
 										type="tel" placeholder="1234567892" name="phonenumber"
-										id="phone_number" value="<%=userDetails.getPhoneNumber()%>"
+										id="phone_number" value="<%=userDetails.getPhoneNumber() != null ? userDetails.getPhoneNumber(): ""%>"
 										maxlength="10" required>
 								</div>
 							</div>
@@ -678,27 +672,27 @@ footer h3 {
 							<div class="input-column">
 								<div class="user-address">
 									<label for="adreess">Address :</label><br>
-									<textarea required cols="30" rows="4" name="address" id="user_address"><%=userDetails.getAddress()%></textarea>
+									<textarea required cols="30" rows="4" name="address" id="user_address"><%=userDetails.getAddress() != null ? userDetails.getAddress() : ""%></textarea>
 								</div>
 
 								<div class="user_state">
 									<label for="user_state">State :</label><br> <input
 										type="text" name="state" id="user_state"
 										placeholder="Enter your State" pattern="[A-Za-z]{1,10}"
-										value="<%=userDetails.getState()%>" required>
+										value="<%=userDetails.getState() != null ? userDetails.getState() : ""%>" required>
 								</div>
 
 								<div class="user_city">
 									<label for="User_city">City : </label><br> <input
 										type="text" name="city" id="user_city"
 										placeholder="Enter your city" pattern="[A-Za-z]{1,10}"
-										value="<%=userDetails.getCity()%>" required>
+										value="<%=userDetails.getCity() != null ? userDetails.getCity() : ""%>" required>
 								</div>
 
 								<div class="user_pincode">
 									<label for="user_pincode">Pincode : </label><br> <input
 										type="number" name="pincode" id="user_pincode"
-										placeholder="600081" value="<%=userDetails.getPincode()%>"
+										placeholder="600081" value="<%=userDetails.getPincode() != null ? userDetails.getPincode() : ""%>"
 										pattern="[0-9]{6}" required>
 								</div>
 							</div>
@@ -714,7 +708,7 @@ footer h3 {
 			<%
 			}
 			%>
-			<div class="user_orders">
+		<!-- 	<div class="user_orders">
 				<h1 class="head">My Orders</h1>
 				<div class="book_info">
 					<h2>Order Status : Pending...</h2>
@@ -744,7 +738,7 @@ footer h3 {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
