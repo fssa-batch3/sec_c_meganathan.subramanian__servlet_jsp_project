@@ -90,7 +90,7 @@ if (isLoginIn == false) {
 				<li><a href=""> <i class="fa-regular fa-heart"></i>
 				</a></li>
 				<a href=""><span id="wish_count"> </span></a>
-				<li><a href=""> <i class="fa-solid fa-cart-shopping"></i>
+				<li><a href="<%= request.getContextPath()+"/user_cart.jsp"%>"> <i class="fa-solid fa-cart-shopping"></i>
 				</a></li>
 			</ul>
 		</div>
@@ -120,7 +120,7 @@ if (isLoginIn == false) {
 			href="<%=request.getContextPath() + "/Index"%>">Categories<i
 				class="fa-solid fa-caret-down"></i></a>
 			<ol class="Explore-option">
-				<li class="Arts-option"><a href=	"<%=request.getContextPath() + "/BookListByCategy?Categy=ARTS_AND_BIOGRAPHY_BOOK"%>"class="Categories">Arts
+				<li class="Arts-option"><a href="<%=request.getContextPath() + "/BookListByCategy?Categy=ARTS_AND_BIOGRAPHY_BOOK"%>"class="Categories">Arts
 						and Biography</a>
 					<div class="arts-menu"></div></li>
 				<li><a

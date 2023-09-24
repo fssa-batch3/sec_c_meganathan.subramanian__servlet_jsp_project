@@ -1,6 +1,7 @@
 <%@page import="com.fssa.bookstore.enums.Categories"%>
 <%@page import="com.fssa.bookstore.service.BookService"%>
 <%@page import="com.fssa.bookstore.model.Book"%>
+<%@page import="com.fssa.bookstore.model.User"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -87,7 +88,13 @@
 						<div class="trend_book">
 							<a href=""><img src=<%=listOfBooksTamil.getBookImageUrl()%>
 								alt="Book img"></a> <a href=""><input type="button"
-								value="add to cart" class="add"></a>
+								value="add to cart" class="add"
+								onclick="addToCart(
+    '<%=listOfBooksTamil.getBookId()%>',
+    '<%=listOfBooksTamil.getBookImageUrl()%>',
+    '<%=listOfBooksTamil.getBookName()%>',
+    '<%=listOfBooksTamil.getBookPrice()%>',
+    '<%=listOfBooksTamil.getAboutAuthor()%>')"></a>
 						</div>
 						<div class="book-info">
 							<p>
@@ -103,7 +110,7 @@
 								<%=listOfBooksTamil.getBookPrice()%><s>&#8377 800</s>
 							</h3>
 							<a
-								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listOfBooksTamil.getBookId()%>&categy=<%= listOfBooksTamil.getBookCategories()%>"><button>View
+								href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=listOfBooksTamil.getBookId()%>&categy=<%=listOfBooksTamil.getBookCategories()%>"><button>View
 									Details</button></a>
 						</div>
 
@@ -112,7 +119,7 @@
 			</div>
 			<%
 			}
-			} 
+			}
 			%>
 
 		</div>
@@ -156,6 +163,12 @@
 						<div class="trend_book">
 							<a href=""><img src=<%=listAllbook.getBookImageUrl()%>
 								alt="Book img"></a><a href=""><input type="button"
+								onclick="addToCart(
+    '<%=listAllbook.getBookId()%>',
+    '<%=listAllbook.getBookImageUrl()%>',
+    '<%=listAllbook.getBookName()%>',
+    '<%=listAllbook.getBookPrice()%>',
+    '<%=listAllbook.getAboutAuthor()%>')"
 								value="add to cart" class="add"></a>
 						</div>
 						<div class="book-info">
@@ -180,8 +193,7 @@
 			</div>
 			<%
 			}
-			} 
-
+			}
 			%>
 		</div>
 	</div>
@@ -250,6 +262,12 @@
 						<div class="trend_book">
 							<a href=""><img src=<%=listFictionBooks.getBookImageUrl()%>
 								alt="Book img"></a><a href=""><input type="button"
+								onclick="addToCart(
+    '<%=listFictionBooks.getBookId()%>',
+    '<%=listFictionBooks.getBookImageUrl()%>',
+    '<%=listFictionBooks.getBookName()%>',
+    '<%=listFictionBooks.getBookPrice()%>',
+    '<%=listFictionBooks.getAboutAuthor()%>')"
 								value="add to cart" class="add"></a>
 						</div>
 						<div class="book-info">
@@ -323,6 +341,12 @@
 							<div class="trend_book">
 								<a href=""><img src=<%=newArrivalBooks.getBookImageUrl()%>
 									alt="Book img"></a><a href=""><input type="button"
+									onclick="addToCart(
+    '<%=newArrivalBooks.getBookId()%>',
+    '<%=newArrivalBooks.getBookImageUrl()%>',
+    '<%=newArrivalBooks.getBookName()%>',
+    '<%=newArrivalBooks.getBookPrice()%>',
+    '<%=newArrivalBooks.getAboutAuthor()%>')"
 									value="add to cart" class="add"></a>
 							</div>
 							<div class="book-info">
@@ -339,7 +363,7 @@
 									<%=newArrivalBooks.getBookPrice()%><s>&#8377 800</s>
 								</h3>
 								<a
-									href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=newArrivalBooks.getBookId()%>&categy=<%= newArrivalBooks.getBookCategories()%>"><button>View
+									href="<%=request.getContextPath()%>/BookDetailsServlet?bookId=<%=newArrivalBooks.getBookId()%>&categy=<%=newArrivalBooks.getBookCategories()%>"><button>View
 										Details</button></a>
 							</div>
 
@@ -487,6 +511,51 @@
 	</footer>
 
 	<!------------------------END OF THE FOOTER CONTENT----------------- -->
+	<%
+	HttpSession httpSession = request.getSession(false);
+	User userDetails = (User) httpSession.getAttribute("logInUserDetails");
+	%>
+
+			<script type="text/javascript">
+    // Check if the user is logged in
+    let userLoggedIn = <%=userDetails != null%>;
+
+    function addToCart(bookId, bookImageUrl, bookTitle, Price, authorContent) {
+        if (typeof Storage !== "undefined") {
+            if (!userLoggedIn) {
+                alert("Seems you're not logged in");
+                window.location.href = "login.jsp";
+            } else {
+            	let userEmail = <%= userDetails != null ? "'" + userDetails.getEmail() + "'" : "''" %>;
+					let cartItems = JSON.parse(localStorage.getItem("user_cart")) || [];
+					let existingItem = cartItems.find(function(item) {
+						return item.Book_id === bookId;
+					});
+
+					if (!existingItem) {
+						let book = {
+							userEmailId : userEmail,
+							Book_id : bookId,
+							Book_image : bookImageUrl,
+							Book_title : bookTitle,
+							price : Price,
+							author_content : authorContent,
+							qty : 1
+						};
+
+						cartItems.push(book);
+						localStorage.setItem("user_cart", JSON
+								.stringify(cartItems));
+						alert("Book added to cart!");
+					} else {
+						alert("Book is already in the cart!");
+					}
+				}
+			} else {
+				alert("Sorry, your browser does not support local storage.");
+			}
+		}
+	</script>
 </body>
 
 </html>
