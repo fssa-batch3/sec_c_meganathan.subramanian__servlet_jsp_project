@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 			user =  userService.loginUser(email);
 			String pwd = user.getPassword(); 
 			if(!password.equals(pwd)) {
-				throw new InvalidInputException("Incorrect Password");
+				throw new InvalidInputException("Invalid Credentials");
 			}
 //			Below the code for create the new session
 			HttpSession httpSession = request.getSession();

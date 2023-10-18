@@ -259,7 +259,7 @@ body {
 	margin-left: 12px;
 	font-size: 19px;
 	font-weight: 600;
-	margin-top: -8vh;
+	margin-top: -5vh;
 }
 
 .address p {
@@ -297,7 +297,19 @@ letter-spacing: 1px;
 margin-left: 180px;
 margin-top: -65px;
 }
-
+button{
+    cursor: pointer;
+    padding: 10px 12px;
+    margin-top: px;
+    background-color: #e25454;
+    color: white;
+    font-weight: 700;
+    border: yellow;
+    font-size: medium;
+    border-radius: 3px;
+    position: relative;
+    top: 20px;
+}
 </style>
 </head>
 
@@ -379,28 +391,21 @@ margin-top: -65px;
 								<%
 								if (!orderDetail.isStatus()) {
 								%>
-								<p>Status - Canceled</p>
+								<p>Status - Cancelled</p>
 								<%
 								} else {
 								%>
-
-								<p>Status - Not deliverd</p>
+								<p>Status - Not delivered</p>
 								<%
 								}
 								%>
-
-								<a
-									href="<%=request.getContextPath()%>/cancel_order?orderId=<%=orderDetail.getId()%>"><button>Cancel
+								<% if (orderDetail.isStatus()){ %>	
+									<a href="<%=request.getContextPath()%>/cancel_order?orderId=<%=orderDetail.getId()%>"><button>Cancel
 										order?</button></a>
-
+										<%} %>
 							</div>
-
-
 						</div>
-
-
 					</div>
-
 				</div>
 				<%
 				}

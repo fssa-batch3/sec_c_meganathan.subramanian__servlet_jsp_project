@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-  <%@page isErrorPage="true" %>
+<%@ page isErrorPage="true"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>400 - Bad Request</title>
+    <title>401 Unauthorized</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
             margin: 0;
             padding: 0;
-            
+
         }
 
         .error-container {
@@ -24,12 +25,13 @@
             border-radius: 5px;
             box-shadow: 0 0 10px #0000001a;
             background-color: #fff;
-            
+
         }
 
         .error-code {
             font-size: 3rem;
-            color: #e74c3c;
+            color: #1b2e35;
+            font-weight: 540;
         }
 
         .error-message {
@@ -45,8 +47,9 @@
         }
 
         .error-image {
-            width: 420px;
-            margin-top: 30px;
+            width: 560px;
+            /* height: 300px; */
+            /* margin-top: -20px; */
         }
 
         .error-actions {
@@ -56,34 +59,41 @@
 
         .error-actions a {
             text-decoration: none;
-            background-color: #007BFF;
+            background-color: #535e62;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s ease;
-        
-           
+
+
         }
 
         .error-actions a:hover {
-            background-color: #0056b3;
+            background-color: #1b2e35;
+        }
+        .error_message{
+            margin-top: -20px;
         }
     </style>
 </head>
+
 <body>
     <div class="error-container">
-        <img class="error-image" src="<%= request.getContextPath() %>/assets/images/5206507.jpg" alt="Not Found">
-        <div class="error-code">400</div>
-        <div class="error-message">Bad Request</div>
-        <div class="error-description">
-            Oops! It seems there was a problem with your request.
-            Please check the URL or try again later.
-        </div>
-        <div class="error-actions">
-            <a href="<%= request.getContextPath()%>/Index">Go to Homepage</a>
+        <img class="error-image" src="assets/images/401 Error Unauthorized-rafiki.svg" alt="Not Found">
+        <div class="error_message">
+            <div class="error-code"> Error: error Unauthorized!</div>
+            <div class="error-message"></div>
+            <div class="error-description">
+                <p>Sorry, but you are not authorized to access this page or resource.</p>
+            <p>Refresh or try agian later.</p>
+            </div>
+            <div class="error-actions">
+                <a href="<%= request.getContextPath() %>/Index">Go to Homepage</a>
+            </div>
         </div>
     </div>
 
 </body>
+
 </html>

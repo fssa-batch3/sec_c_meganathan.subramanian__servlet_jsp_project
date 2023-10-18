@@ -185,7 +185,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 					<!-- Added Serial No. column -->
 					<th>Image</th>
 					<th>Product</th>
-					<th>Price</th>
+					<th>price</th>
 					<th>Quantity</th>
 					<th>Subtotal</th>
 					<th>Remove</th>
@@ -259,24 +259,36 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	<!------------------------END OF THE FOOTER CONTENT----------------- -->
 
 
+	<%
+	HttpSession httpSession = request.getSession(false);
+	User userDetails = (User) httpSession.getAttribute("logInUserDetails");
+	%>
+
 	<script>
-// Function to retrieve cart items from local storage and populate the cart table
+	
+
+// Below the function for set the local storage 
 function populateCartTable() {
     const cartTableBody = document.querySelector("#cart-table");
 
-    const cartItems = JSON.parse(localStorage.getItem("user_cart")) || [];
-
-    // Clear the table body before populating it again
+    const cartItems = JSON.parse(localStorage.getItem("user_cart")) || []; //  Check the local storage user_Cart
+    
+    let userInEmailSession = "<%=userDetails.getEmail()%>" ; // Get the mail from the session     
+    
+    let userBookId =  "<%=userDetails.getId()%>" ; // Get the id from the session 
+   
     cartTableBody.innerHTML = "";
 
-    // Loop through the cart items and create table rows
+    // Below the code for loop and get the values
     cartItems.forEach((item, index) => {
+ 
+    	if(userInEmailSession === item.userEmailId){
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${index + 1}</td> <!-- Serial number -->
             <td><img src="${item.Book_image}" alt="${item.Book_title}" width="100"></td>
             <td>${item.Book_title}</td>
-            <td>${item.originalPrice ? '&#8377;' + parseFloat(item.originalPrice).toFixed(2) : 'N/A'}</td>
+            <td>${item.price? '&#8377;' + parseFloat(item.price).toFixed(2) : 'N/A'}</td>
             <td class="quantity">
                 <div class="button-container">
                     <button onclick="decrementQuantity(${index})">-</button>
@@ -284,11 +296,13 @@ function populateCartTable() {
                     <button onclick="incrementQuantity(${index})">+</button>
                 </div>
             </td>
-            <td>${item.originalPrice ? '&#8377;' + (parseFloat(item.originalPrice) * item.qty).toFixed(2) : 'N/A'}</td>
+            <td>${item.price? '&#8377;' + (parseFloat(item.price) * item.qty).toFixed(2) : 'N/A'}</td>
             <td class="remove-button"><button onclick="removeCartItem(${index})">Remove</button></td>
         `;
         cartTableBody.appendChild(row);
+    	}
     });
+   
 }
 
 // Function to update the quantity of a cart item
@@ -305,14 +319,6 @@ function removeCartItem(index) {
     cartItems.splice(index, 1);
     localStorage.setItem("user_cart", JSON.stringify(cartItems));
     populateCartTable();
-}
-
-// Function to handle the checkout button click
-function checkout() {
-    // You can implement the checkout logic here
-    // For example, redirect the user to a payment page
-    alert("Redirecting to the payment page...");
-    // window.location.href = "payment.jsp";
 }
 
 // Function to increment quantity
@@ -345,17 +351,17 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateCartSummary() {
     const cartItems = JSON.parse(localStorage.getItem("user_cart")) || [];
     
-    // Calculate total price and quantity
-    let totalPrice = 0;
+    // Calculate total priceand quantity
+    let totalprice= 0;
     let totalQuantity = 0;
 
     cartItems.forEach((item) => {
-        totalPrice += item.subtotal || 0;
+        totalprice+= item.subtotal || 0;
         totalQuantity += item.qty || 0;
     });
 
     // Update the summary elements
-    document.getElementById("total-price").textContent = '&#8377;' + totalPrice.toFixed(2);
+    document.getElementById("total-price").textContent = '&#8377;' + totalprice.toFixed(2);
     document.getElementById("total-quantity").textContent = totalQuantity;
 }
 

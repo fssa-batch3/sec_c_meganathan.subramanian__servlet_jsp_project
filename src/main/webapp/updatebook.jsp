@@ -187,7 +187,7 @@ h1 {
 					<!-- Categories -->
 					<div class="form-group">
 						<label for="BookCategory">Select the Category:</label> <select
-							name="bookCategory" value="<%=book.getBookCategories()%>">
+							name="bookCategory" value="<%=book.getBookCategories()%>" required>
 							<option disabled selected>Select One</option>
 							<option value="ARTS_AND_BIOGRAPHY_BOOK">Arts & Biography
 								Books</option>

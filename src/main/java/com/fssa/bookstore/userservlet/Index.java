@@ -34,7 +34,7 @@ public class Index extends HttpServlet {
 			request.setAttribute("ListTamilBooks", listTamilBooks);
 			request.setAttribute("listFictionBooks", listFictionBooks);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 			rd.forward(request, response);
 		}
 		catch(IOException | ServletException | ServiceException e) {

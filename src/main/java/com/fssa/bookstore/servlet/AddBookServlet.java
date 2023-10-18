@@ -1,9 +1,10 @@
 package com.fssa.bookstore.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
+import java.time.format.DateTimeFormatterBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,7 +50,7 @@ public class AddBookServlet extends HttpServlet {
         String bookCategory = request.getParameter("book_category");
         String bookBinding = request.getParameter("bookBinding");
         String returnable = request.getParameter("returnable");
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy");
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
         
      // Below the code for create a new instance
         Book book = new Book();
@@ -71,8 +72,8 @@ public class AddBookServlet extends HttpServlet {
                 book.setBookDescription(bookDescription);
                 book.setAboutAuthor(aboutAuthor);
                 book.setAuthorImgUrl(authorImgUrl);
-                LocalDate parsedPublisherDate = LocalDate.parse(publisherDate, outputFormatter); // Parse the date
-                book.setPublisherDate(parsedPublisherDate);
+                LocalDate localDate = LocalDate.parse(publisherDate,dateFormat);
+                book.setPublisherDate(localDate);	
                 book.setPublisherImprint(publisherImprint);
                 book.setBookBinding(binding);
                 book.setBookDepth(Double.parseDouble(bookDepth));

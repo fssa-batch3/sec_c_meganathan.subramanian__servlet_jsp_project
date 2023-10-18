@@ -70,6 +70,12 @@
 		<description></description>
 		<servlet-class>com.fssa.bookstore.userservlet.CancelOrder</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>OrderServlet</servlet-name>
+		<display-name>OrderServlet</display-name>
+		<description></description>
+		<servlet-class>com.fssa.bookstore.servlet.OrderServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Combobook</servlet-name>
 		<url-pattern>/Combobook</url-pattern>
@@ -114,6 +120,10 @@
 		<servlet-name>CancelOrder</servlet-name>
 		<url-pattern>/CancelOrder</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OrderServlet</servlet-name>
+		<url-pattern>/OrderServlet</url-pattern>
+	</servlet-mapping>
 
 
 
@@ -124,31 +134,44 @@
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>404</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/404Error.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>401</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/401Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>405</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/404Error.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
+			exceptions -->
+		<error-code>400</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/400Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>500</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/500Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>501</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/501Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>401</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/401Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
@@ -160,19 +183,19 @@
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>503</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/503Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>504</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/504Error.jsp</location>
 	</error-page>
 	<error-page>
 		<!-- <exception-type>java.lang.Exception</exception-type> For handling 
 			exceptions -->
 		<error-code>599</error-code> <!-- HTTP Error code Page Not found -->
-		<location>/error_handle.jsp</location>
+		<location>/400Error.jsp</location>
 	</error-page>
 </web-app>
 

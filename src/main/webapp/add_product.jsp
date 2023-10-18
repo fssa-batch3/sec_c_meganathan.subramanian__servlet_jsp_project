@@ -2,7 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +16,9 @@ body {
 
 .container {
 	max-width: 800px;
-	margin: 0 auto;
+/* 	margin: 0 auto; */
 	/* margin-top: 20px; */
+	margin:100px 350px;
 	padding: 20px;
 	background-color: #fff;
 	border-radius: 5px;
@@ -77,6 +77,8 @@ h1 {
 </head>
 
 <body>
+<jsp:include page="admin_header.jsp"></jsp:include>
+
 	<%
 	String error = (String) request.getAttribute("errorMessage");
 	if (error != null && !("".equals(error))) {

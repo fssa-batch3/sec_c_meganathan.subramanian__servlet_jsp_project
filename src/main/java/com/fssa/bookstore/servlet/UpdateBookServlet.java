@@ -42,6 +42,7 @@ public class UpdateBookServlet extends HttpServlet {
 		String bookDescription = request.getParameter("bookDescription");
 		String authorImgUrl = request.getParameter("authorImgUrl");
 		String author = request.getParameter("author");
+		Logger.info(author);
 		String aboutAuthor = request.getParameter("aboutAuthor");
 		String quantity = request.getParameter("quantity");
 		String bookLanguage = request.getParameter("bookLanguage");

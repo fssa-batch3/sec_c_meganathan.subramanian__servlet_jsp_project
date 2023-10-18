@@ -46,14 +46,9 @@
 		`);
 	</script>
 	<%
-	} else {
+	} 
 	%>
-	<script>
-        Notify.error("please fill the details");
-    </script>
-	<%
-	}
-	%>
+	
 	<!------------ START THE LOGIN PAGE --------------------->
 
 	<div class="container">

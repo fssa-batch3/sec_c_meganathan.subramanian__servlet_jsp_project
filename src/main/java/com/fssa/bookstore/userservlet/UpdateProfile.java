@@ -28,7 +28,6 @@ public class UpdateProfile extends HttpServlet {
 		String name = request.getParameter("name");
 		String phoneNumber = request.getParameter("phonenumber");
 		String email = request.getParameter("email");
-		String pass = request.getParameter("password");
 		String address = request.getParameter("address");
 		String state = request.getParameter("state");
 		String city = request.getParameter("city");
@@ -39,7 +38,6 @@ public class UpdateProfile extends HttpServlet {
 		user.setName(name);
 		user.setPhoneNumber(phoneNumber);
 		user.setEmail(email);
-		user.setPassword(pass);
 		user.setAddress(address);
 		user.setState(state);
 		user.setCity(city);

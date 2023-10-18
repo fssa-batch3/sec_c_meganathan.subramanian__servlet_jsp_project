@@ -12,7 +12,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/category.css">
-<link rel="stylesheet" href="assets/css/style.css">
+
+
 
 <!--------------------- Font awesome ------------------->
 
@@ -35,23 +36,23 @@
 	<!-------------------- Main content --------------->
 
 	<div class="container">
-		<div class="self-help2">
+		<div class="self-help">
 			<h1>
 				Refine Your Search <i class="fa-solid fa-filter"></i>
 			</h1>
-			<div class="user-refine2">
+			<div class="user-refine">
 				<h3>Price Range -</h3>
 				<h3>0 to 10000RS:</h3>
 				<input type="range">
 			</div>
 			<hr>
-			<div class="user-refine2">
+			<div class="user-refine">
 				<h3>Discount Range -</h3>
 				<h3>0 - 80%:</h3>
 				<input type="range">
 			</div>
 			<hr>
-			<div class="user-refine2">
+			<div class="user-refine">
 				<h3>Binding:</h3>
 				<input type="checkbox"> <span>Paper Back</span> <br> <input
 					type="checkbox"> <span>Hard Cover</span> <br> <input
@@ -84,8 +85,8 @@
 
 		<!---------- Trending books Section ---------------->
 
-		<div class="trends2 reveal2">
-			<div class="section-head2">
+		<div class="trends reveal">
+			<div class="section-head">
 				<h2>Result Found (1500)</h2>
 				<h3>Best Seller</h3>
 				<a href="#">See All</a>
@@ -96,19 +97,19 @@
 			if(bookCategy != null){
 			
 			%>
-			<div class="books2">
+			<div class="books">
 			<% for(Book bookCategory : bookCategy){
 				
 			%>
 			
-				<div class="book-img2">
-					<div class="trend_book2">
+				<div class="book-img">
+					<div class="trend_book">
 						<a href="Pages/products_details/Product_page.html"><img
 							src="<%=bookCategory.getBookImageUrl()%>"
 							alt="trend books"></a> <a href="Pages/orders/Wish_list.html"><input
 							type="button" value="Add to Cart" class="add"></a>
 					</div>
-					<div class="book-info2">
+					<div class="book-info">
 						<p><%= bookCategory.getBookName() %></p>
 						<div class="rating">
 							<i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
@@ -143,7 +144,7 @@
 	<footer>
 		<div class="row">
 			<div class="bookstore_logo">
-				<img src="../../assets/images/logo.png" alt="bookstore logo">
+				<img src="<%=request.getContextPath()%>/assets/images/logo.png" alt="bookstore logo">
 				<h3>
 					"Our purpose is motivate yourself <br>and improve your
 					knowdledge".
@@ -180,7 +181,6 @@
 		<p style="text-align: center;">&#169;Copyright 2022-Meganathan</p>
 	</footer>
 	<!------------END OF THE FOOTER CONTENT------- -->
-
 
 </body>
 

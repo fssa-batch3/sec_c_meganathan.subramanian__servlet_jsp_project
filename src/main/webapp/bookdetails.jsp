@@ -12,7 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="assets/css/productdetails.css">
+<link rel="stylesheet" href="assets/css/productdetails.css"><!--  -->
 <link rel="shortcut icon"
 	href="https://bookztore.netlify.app/assets/images/favicon%20img.png"
 	type="image/x-icon">
@@ -37,6 +37,7 @@
 	width: 700px;
 	margin-left: 370px;
 	margin-top: 50px;
+	display: none;
 }
 </style>
 </head>
@@ -161,7 +162,8 @@
 			<%
 			for (Book bookCatgy : bookListCategy) {
 			%>
-			<div class="book-img">
+			<div class="book-img  book-item"
+				data-title="<%=bookCatgy.getBookName()%>">
 				<div class="trend_book">
 					<img src="<%=bookCatgy.getBookImageUrl()%>" alt="trend books">
 					<a href=""><input type="button" value="Add to Cart" class="add"></a>
@@ -188,8 +190,10 @@
 			<%
 			}
 			%>
+			<img alt=""
+				src="https://lecadeau.in/assets/images/pnf.jpg"
+				class="product-notfound">
 		</div>
-
 
 		<div class="arrow-right">
 			<i class="fa-solid fa-arrow-right"></i>
@@ -202,12 +206,13 @@
 	<%
 	} else {
 	%>
-	<img alt=""
+	<img style="display: block;" alt=""
 		src="https://bagbazaars.com/assets/img/no-product-found.png"
 		class="product-notfound">
 	<%
 	}
 	%>
+
 
 
 	<!------------- Start the Newsletter forms -------------->
@@ -275,5 +280,38 @@
 	</footer>
 	<!------------ END OF THE FOOTER CONTENT --------------------->
 
+	<script type="text/javascript">
+
+// Function to filter books based on the search input
+function filterBooks() {
+    const searchInput = document.getElementById("Search_book").value.toLowerCase();
+    const bookItems = document.querySelectorAll(".book-item");
+    const image = document.querySelector(".product-notfound");
+
+    bookItems.forEach((bookItem) => {
+        const title = bookItem.getAttribute("data-title").toLowerCase();
+        
+        if (title.includes(searchInput) || searchInput === "") {
+            bookItem.style.display = "block"; // Show matching books or all books if input is empty
+        } else {
+            bookItem.style.display = "none";// Hide non-matching books
+            
+        }
+    });
+    
+     const visibleBooks = document.querySelectorAll(".book-item[style='display: block;']");
+    if (visibleBooks.length === 0) {
+        image.style.display = "block";
+    } else {
+        image.style.display = "none";
+    } 
+
+}
+
+// Add an event listener to trigger the filterBooks function when the input field value changes
+document.getElementById("Search_book").addEventListener("input", filterBooks);
+
+
+</script>
 </body>
 </html>
