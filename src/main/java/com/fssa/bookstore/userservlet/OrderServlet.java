@@ -14,6 +14,7 @@ import com.fssa.bookstore.exception.ServiceException;
 import com.fssa.bookstore.logger.Logger;
 import com.fssa.bookstore.model.Orders;
 import com.fssa.bookstore.model.User;
+import com.fssa.bookstore.service.BookService;
 import com.fssa.bookstore.service.OrderService;
 
 /**
@@ -32,26 +33,36 @@ public class OrderServlet extends HttpServlet {
 		String bookImgUrl = request.getParameter("bookImgUrl");
 		String address = request.getParameter("delivery_address");
 		String qty = request.getParameter("qty");
-
+		String city = request.getParameter("city");
+		String state = request.getParameter("state");
+		String pincode = request.getParameter("pincode");
+		
 		// Below the code for get the session
 		HttpSession session = request.getSession(false);
 		User user = (User) session.getAttribute("logInUserDetails");
 
 		Orders order = new Orders();
+		BookService bookService = new BookService();
 		OrderService orderService = new OrderService();
+		
+		
 		
 		try {
 			order.setProductId(Integer.parseInt(bookId));
 			order.setUserId(user.getId());
 			order.setAddress(address);
-			order.setPincode(user.getPincode());
-			order.setCity(user.getCity());
-			order.setState(user.getState()); 
+			order.setPincode(pincode);
+			order.setCity(city);
+			order.setState(state); 
 			order.setBookImgUrl(bookImgUrl);
 			order.setPrice(Double.parseDouble(bookPrice));
 			order.setBookName(bookName);
 			order.setQuantity(Integer.parseInt(qty));
+			
 			orderService.addOrder(order);
+			bookService.updateStock(Integer.parseInt(qty), Integer.parseInt(bookId));
+			
+			
 			
 			response.sendRedirect(request.getContextPath()+ "/order_confirmation.jsp");
 //			request.setAttribute("orderDetails", order);

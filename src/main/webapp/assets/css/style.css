@@ -273,12 +273,14 @@ body {
 }
 
 /*----------Start the navigation------- */
-
+.navigation{
+	margin-top: -40px;
+}
 .navigation ul {
-	background-color: rgb(222, 222, 222);
+	background-color:rgb(224 224 224);
 	padding: 25px;
 	display: flex;
-	margin-top: 110px;
+	margin-top: 128px;
 	height: 90px;
 	list-style-type: none;
 	border-top: 1px solid navy;
@@ -1063,7 +1065,3 @@ footer h3 {
 
 /* -----END OF THE FOOTER CONTENT-----*/
 
-
-/* -- CREATE A RESPONSIVE CONTENT -------- */
-
-@media screen and (max-width:800px) {}

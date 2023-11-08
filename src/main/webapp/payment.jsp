@@ -298,10 +298,21 @@
                 <label>Mobile Number*</label><br> <input name="phoneNumber" value="<%= userDetails.getPhoneNumber() %>" />
             </div>
             <div class="field">
-                <label>Address*</label><br>
-                <textarea rows="5" cols="66" name="delivery_address"><%=userDetails.getAddress()%></textarea>
+                <label>City*</label><br> <input name="city" placeholder="Enter your city" value="<%= userDetails.getCity() != null ? userDetails.getCity() : ""%>" />
             </div>
-            <button id="button" type="submit">Change Address</button>
+            <div class="field">
+                <label>State*</label><br> <input name="state" placeholder="Enter your state" value="<%= userDetails.getState() != null ? userDetails.getState() : "" %>" />
+            </div>
+            <div class="field">
+                <label>Pincode*</label><br> <input name="pincode" placeholder="Enter yout pincode" value="<%= userDetails.getPincode() != null ? userDetails.getPincode() : "" %>" />
+            </div>
+            <div class="field">
+                <label>Address*</label><br>
+                <textarea rows="5" cols="66" name="delivery_address" placeholder="Enter your address"><%=userDetails.getAddress() != null ? userDetails.getAddress() : "" %></textarea>
+            </div>
+            
+            
+           <!--  <button id="button" type="submit">Change Address</button> -->
             <h3 class="payment_details">Payment Details</h3>
             <hr>
             <div class="field">

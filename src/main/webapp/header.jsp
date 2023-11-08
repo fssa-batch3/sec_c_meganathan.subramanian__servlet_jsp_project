@@ -77,9 +77,7 @@
 			<li><a
 				href="<%=request.getContextPath() + "/ComboBooks?Categy=COMBO_BOOKS"%>">Combo</a></li>
 			<li><a
-				href="<%=request.getContextPath() + "/customerfeedback.jsp"%>">Customer
-					Feedback</a></li>
-			<li><a href="<%= request.getContextPath() +"/seller_login.jsp"%>">Admin</a></li>
+				href="<%=request.getContextPath() + "/seller_login.jsp"%>">Admin</a></li>
 			<li><a href="<%=request.getContextPath() + "/login.jsp"%>">Login</a></li>
 
 		</ul>
@@ -157,9 +155,6 @@
 				</ol></li>
 			<li><a
 				href="<%=request.getContextPath() + "/ComboBooks?Categy=COMBO_BOOKS"%>">Combo</a></li>
-			<li><a
-				href="<%=request.getContextPath() + "/customerfeedback.jsp"%>">Customer
-					Feedback</a></li>
 			<li class="profile-menu"><a
 				href="<%=request.getContextPath() + "/profile"%>">My Account <i
 					class="fa-solid fa-user"></i>
@@ -176,7 +171,8 @@
 								class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
 					</ol>
 				</div>
-			<li><a href="<%= request.getContextPath() +"/seller_login.jsp"%>">Admin</a></li>
+		<%-- 	<li><a
+				href="<%=request.getContextPath() + "/seller_login.jsp"%>">Admin</a></li> --%>
 			<li id="log-out"><a
 				href="<%=request.getContextPath() + "/LogoutServlet"%>">Logout</a></li>
 
@@ -187,34 +183,3 @@
 	}
 	%>
 </header>
-<!-- 
-<script type="text/javascript">
-	function search() {
-		
-		// Get the value of the search box and convert it to lowercase
-		const searchbox = searchBox.value.toLowerCase();
-		const box = document.querySelectorAll(".book-img2");
-
-		// Loop through each 'Box' element
-		for (let i = 0; i < box.length; i++) {
-
-			const match = box[i].getElementsByTagName("p")[0];
-
-			if (match) {
-
-				const textvalue = match.textContent || match.innerHTML;
-				const lowercaseTextValue = textvalue.toLowerCase();
-
-				if (lowercaseTextValue.indexOf(searchbox) > -1) {
-					box[i].style.display = "";
-				} else {
-					box[i].style.display = "none";
-				}
-			}
-		}
-	}
-
-	// Get the search box element and add an event listener for when the user types
-	const searchBox = document.getElementById("search-item");
-	searchBox.addEventListener("keyup", search);
-</script> -->

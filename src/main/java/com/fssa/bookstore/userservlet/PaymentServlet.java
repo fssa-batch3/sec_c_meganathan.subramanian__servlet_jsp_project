@@ -28,6 +28,7 @@ public class PaymentServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String bookId = request.getParameter("bookId");
+		
 		HttpSession httpSession = request.getSession(false);
 		User sessionCheck = (User) httpSession.getAttribute("logInUserDetails");
 		if (sessionCheck == null) {
@@ -37,8 +38,7 @@ public class PaymentServlet extends HttpServlet {
 			try {
 				Book bookDetails = new BookService().readBook(Integer.parseInt(bookId));
 				request.setAttribute("bookDetails", bookDetails);
-				Logger.info("Get the Bookdetatils " + bookDetails);
-
+				
 				RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/payment.jsp");
 				rd.forward(request, response);
 			} catch (ServiceException | NumberFormatException e) {

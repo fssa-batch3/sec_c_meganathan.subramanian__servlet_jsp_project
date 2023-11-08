@@ -9,12 +9,14 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="shortcut icon" href="assets/images/favicon img.png" type="image/x-icon">
-    <!--------------------- Font awesome ------------------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="assets/css/header.css">
+<link rel="shortcut icon" href="assets/images/favicon img.png"
+	type="image/x-icon">
+<!--------------------- Font awesome ------------------->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 <!------------------ google fonts ------------------------>
@@ -24,15 +26,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOOKS-STORE</title>
 <style type="text/css">
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito:wght@300&display=swap')
+	;
 
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	scroll-behavior: smooth;
-
 }
 
 body {
@@ -45,10 +47,7 @@ body {
 	text-decoration: none;
 }
 
-
-
 /* -------- user profile edit ------------- */
-
 .fa-user {
 	margin-left: 10px;
 	font-size: 24px;
@@ -56,8 +55,6 @@ body {
 }
 
 /*----- PROFILE EDIT --------*/
-
-
 .profile-img img {
 	width: 150px;
 	height: 150px;
@@ -82,7 +79,6 @@ body {
 	margin-left: 30px;
 	margin-top: 1px solid grey;
 }
-
 
 .profile-img h3 {
 	margin: 24px auto;
@@ -119,7 +115,6 @@ body {
 	border-radius: 3px;
 	height: 600px;
 	/* display: none; */
-
 }
 
 #user_form {
@@ -141,7 +136,6 @@ body {
 	width: 90%;
 	border-radius: 3px;
 	margin-left: 20px;
-
 }
 
 .first-inpt input {
@@ -160,7 +154,6 @@ body {
 	margin-left: 20px;
 	width: 164px;
 	display: inline-block;
-
 }
 
 .user-inp a {
@@ -185,9 +178,7 @@ body {
 .user-inp button:hover {
 	text-decoration: underline;
 	background-color: rgb(162, 168, 249);
-
 }
-
 
 .user-inp textarea {
 	font-size: 17px;
@@ -201,8 +192,6 @@ body {
 	margin-top: 12px;
 }
 
-
-
 .user-inp h1 {
 	text-align: center;
 	font-size: 32 px;
@@ -210,7 +199,6 @@ body {
 	font-weight: 600;
 	margin-top: 20px;
 	transition: 0.2s;
-
 }
 
 .user {
@@ -221,8 +209,6 @@ body {
 	margin-top: 15px;
 	margin-left: 150px;
 }
-
-
 
 /* Below the code for edit the user update form */
 #UserUpdate-form {
@@ -236,7 +222,9 @@ body {
 	margin-left: 400px;
 	background-color: white;
 	padding: 30px;
-	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px
+		2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+		rgba(0, 0, 0, 0.07) 0px 16px 16px;
 
 	/* margin-left: 20px; */
 }
@@ -258,7 +246,6 @@ button {
 	cursor: pointer;
 }
 
-
 /* Popup Styles */
 .fa-xmark {
 	color: #007bff;
@@ -268,7 +255,6 @@ button {
 	cursor: pointer;
 	width: 5%;
 	height: 5px;
-
 }
 
 .popup-overlay {
@@ -281,7 +267,6 @@ button {
 	backdrop-filter: blur(3px);
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 1;
-
 }
 
 .popup-container {
@@ -289,7 +274,6 @@ button {
 	top: 50%;
 	left: 24%;
 	padding: 20px;
-
 }
 
 /* Form Layout */
@@ -332,13 +316,11 @@ button {
 	margin-top: 10px;
 }
 
-
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media ( max-width : 768px) {
 	.userUpdateDiv {
 		flex-direction: column;
 	}
-
 	.input-column {
 		width: 100%;
 	}
@@ -354,13 +336,11 @@ footer {
 	padding: 60px 0 20px;
 	margin-top: 100px;
 	height: 310px;
-
 }
 
 .bookstore_logo img {
 	width: 200px;
 	max-width: 1000px;
-
 }
 
 .row {
@@ -471,10 +451,28 @@ footer h3 {
 	height: 3px;
 	border-radius: 2px;
 	border-width: 0px;
-
 }
 
-
+.user-options > button {
+	height: 35px;
+	font-size: 16px;
+	font-weight: 600;
+	width: 180px;
+	border: none;
+	color: rgb(71, 51, 51);
+	border-radius: 2px;
+	background-color: white;
+	transition: 0.2s;
+	margin-top: 20px;
+	margin-left: 83px;
+	cursor: pointer;
+}
+.user-options{
+display: flex;
+}
+.user-options > a{
+margin-left:-272px;
+}
 </style>
 </head>
 
@@ -528,16 +526,17 @@ footer h3 {
 							<div class="user-name">
 								<label for="name">Name :</label><br> <input type="text"
 									name="name" id="name" placeholder="Username"
-									value="<%= userDetails.getName() != null ? userDetails.getName() : ""%>" pattern="^[a-zA-Z]{4,15}$"
-									required disabled>
-									<input type="text" hidden="" value="<%= userDetails.getId()%>">
+									value="<%= userDetails.getName() != null ? userDetails.getName() : ""%>"
+									pattern="^[a-zA-Z]{4,15}$" required disabled> <input
+									type="text" hidden="" value="<%= userDetails.getId()%>">
 							</div>
 
 							<div class="user-password">
 								<label for="last">Password :</label><br> <input
 									type="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/g"
 									id="password" placeholder="*********" disabled required
-									name="password" value="<%=userDetails.getPassword() != null ? userDetails.getPassword() : "" %>">
+									name="password"
+									value="<%=userDetails.getPassword() != null ? userDetails.getPassword() : "" %>">
 							</div>
 							<div class="user-email">
 								<label for="email">Email :</label><br> <input type="email"
@@ -563,107 +562,60 @@ footer h3 {
 								<label for="user_state">State :</label><br> <input
 									type="text" name="state" id="user_state"
 									placeholder="Enter your State" pattern="[A-Za-z]{1,10}"
-									value="<%=userDetails.getState() != null ? userDetails.getState() : ""%>" disabled required>
+									value="<%=userDetails.getState() != null ? userDetails.getState() : ""%>"
+									disabled required>
 							</div>
 							<div class="user_city">
 								<label for="User_city">City : </label><br> <input
 									type="text" name="city" id="user_city"
 									placeholder="Enter your city" pattern="[A-Za-z]{1,10}"
-									value="<%=userDetails.getCity() != null ? userDetails.getCity() : ""%>" disabled required>
+									value="<%=userDetails.getCity() != null ? userDetails.getCity() : ""%>"
+									disabled required>
 							</div>
 							<div class="user_pincode">
 								<label for="user_pincode">Pincode : </label><br> <input
 									type="text" name="pincode" id="user_pincode"
-									placeholder="600081" value="<%=userDetails.getPincode() != null ? userDetails.getPincode() : ""%>"
+									placeholder="600081"
+									value="<%=userDetails.getPincode() != null ? userDetails.getPincode() : ""%>"
 									pattern="[0-9]{7}" max="6" required disabled>
 							</div>
 						</div>
 					</form>
-					<button id="open-popup" type="button">Update profile</button>
-					<a href="deleteServlet?email=<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>"><button type="button">Delete</button></a>
+					<a href="#"><button id="open-popup" type="button">Update profile</button></a> 
+					<div class="user-options">
+						<a href="deleteServlet?email=<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>">
+							<button type="button" id="deletebtn" >Delete</button>
+						</a>
+					</div>
 				</div>
-				<!-- Below the code create the new form -->
-				<!-- <div class="userUpdateDiv">
-
-                        <form action="" id="UserUpdate-form">
-                            <div class="firstInptBox">
-                                <div class="user-name">
-                                    <label for="name">Name :</label><br> <input type="text" name="name" id="name"
-                                        placeholder="Username" value="<%=userDetails.getName()%>"
-                                        pattern="^[a-zA-Z]{4,15}$" required disabled>
-                                </div>
-
-                                <div class="user-password">
-                                    <label for="last">Password :</label><br> <input type="password"
-                                        pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/g" id="password"
-                                        placeholder="*********" disabled required name="password"
-                                        value="<%=userDetails.getPassword()%>">
-                                </div>
-                                <div class="user-email">
-                                    <label for="email">Email :</label><br> <input type="email" name="email"
-                                        placeholder="example@gmail.com" id="email" value="<%=userDetails.getEmail()%>"
-                                        disabled required>
-                                </div>
-
-                                <div class="user-phone-number">
-                                    <label for="number">phone Number:</label><br> <input type="tel"
-                                       placeholder="1234567892" name="phonenumber" id="phone_number"
-                                        value="<%=userDetails.getPhoneNumber()%>" maxlength="10" required disabled>
-                                </div>
-                            </div>
-
-                            <div class="secondInptBox">
-                                <div class="user-address">
-                                    <label for="adreess">address :</label><br>
-                                    <textarea required cols="30" rows="4" id="user_address" disabled><%=userDetails.getAddress()%>
-                         </textarea>
-                                </div>
-                                <div class="user_state">
-                                    <label for="user_state">State :</label><br> <input type="text" name="state"
-                                        id="user_state" placeholder="Enter your State" pattern="[A-Za-z]{1,10}"
-                                        value="<%=userDetails.getState()%>" disabled required>
-                                </div>
-                                <div class="user_city">
-                                    <label for="User_city">City : </label><br> <input type="text" name="city"
-                                        id="user_city" placeholder="Enter your city" pattern="[A-Za-z]{1,10}"
-                                        value="<%=userDetails.getCity()%>" disabled required>
-                                </div>
-                                <div class="user_pincode">
-                                    <label for="user_pincode">Pincode : </label><br> <input type="text" name="pincode"
-                                        id="user_pincode" placeholder="600081" value="<%=userDetails.getPincode()%>"
-                                        pattern="[0-9]{7}" max="6" required disabled>
-                                </div>
-                            </div>
-                            <div class="save_btn">
-                                <button id="Save_user" type="submit">save</button>
-                            </div>
-                        </form>
-                    </div> -->
 
 				<div class="popup-overlay" id="popup">
 					<div class="popup-container"></div>
 					<div class="userUpdateDiv">
-						<form action="<%=request.getContextPath()+"/UpdateProfileServlet" %>" id="UserUpdate-form" method="post">
+						<form action="<%=request.getContextPath() + "/UpdateProfileServlet"%>"
+							id="UserUpdate-form" method="post">
 							<i class="fa-solid fa-xmark" id="close-popup"></i>
 							<!-- Left Side Inputs -->
 							<div class="input-column">
 								<div class="user-name">
 									<label for="name">Name :</label><br> <input type="text"
 										name="name" id="name" placeholder="Username"
-										value="<%= userDetails.getName() != null ? userDetails.getName() : ""%>"
+										value="<%=userDetails.getName() != null ? userDetails.getName() : ""%>"
 										pattern="^[a-zA-Z]{4,15}$" required>
 								</div>
 
-								<div class="user-email" >
-									<br> <input type="email"  hidden=""
-										name="email" placeholder="example@gmail.com" id="email"
-										value="<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>" required>
-								</div> 
+								<div class="user-email">
+									<br> <input type="email" hidden="" name="email"
+										placeholder="example@gmail.com" id="email"
+										value="<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>"
+										required>
+								</div>
 
 								<div class="user-phone-number">
 									<label for="number">Phone Number:</label><br> <input
 										type="tel" placeholder="1234567892" name="phonenumber"
-										id="phone_number" value="<%=userDetails.getPhoneNumber() != null ? userDetails.getPhoneNumber(): ""%>"
+										id="phone_number"
+										value="<%=userDetails.getPhoneNumber() != null ? userDetails.getPhoneNumber() : ""%>"
 										maxlength="10" required>
 								</div>
 							</div>
@@ -672,27 +624,31 @@ footer h3 {
 							<div class="input-column">
 								<div class="user-address">
 									<label for="adreess">Address :</label><br>
-									<textarea required cols="30" rows="4" name="address" id="user_address"><%=userDetails.getAddress() != null ? userDetails.getAddress() : ""%></textarea>
+									<textarea required cols="30" rows="4" name="address"
+										id="user_address"><%=userDetails.getAddress() != null ? userDetails.getAddress() : ""%></textarea>
 								</div>
 
 								<div class="user_state">
 									<label for="user_state">State :</label><br> <input
 										type="text" name="state" id="user_state"
 										placeholder="Enter your State" pattern="[A-Za-z]{1,10}"
-										value="<%=userDetails.getState() != null ? userDetails.getState() : ""%>" required>
+										value="<%=userDetails.getState() != null ? userDetails.getState() : ""%>"
+										required>
 								</div>
 
 								<div class="user_city">
 									<label for="User_city">City : </label><br> <input
 										type="text" name="city" id="user_city"
 										placeholder="Enter your city" pattern="[A-Za-z]{1,10}"
-										value="<%=userDetails.getCity() != null ? userDetails.getCity() : ""%>" required>
+										value="<%=userDetails.getCity() != null ? userDetails.getCity() : ""%>"
+										required>
 								</div>
 
 								<div class="user_pincode">
 									<label for="user_pincode">Pincode : </label><br> <input
 										type="number" name="pincode" id="user_pincode"
-										placeholder="600081" value="<%=userDetails.getPincode() != null ? userDetails.getPincode() : ""%>"
+										placeholder="600081"
+										value="<%=userDetails.getPincode() != null ? userDetails.getPincode() : ""%>"
 										pattern="[0-9]{6}" required>
 								</div>
 							</div>
@@ -708,7 +664,7 @@ footer h3 {
 			<%
 			}
 			%>
-		<!-- 	<div class="user_orders">
+			<!-- 	<div class="user_orders">
 				<h1 class="head">My Orders</h1>
 				<div class="book_info">
 					<h2>Order Status : Pending...</h2>
@@ -783,7 +739,7 @@ footer h3 {
 		</div>
 		<p style="text-align: center;">&#169;Copyright 2022-Meganathan</p>
 	</footer>
-	
+
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			const popup = document.getElementById('popup');
@@ -815,7 +771,7 @@ footer h3 {
 		toggleInputs(true);
 
 		// Add an event listener to the "Edit" button
-		document.getElementById("edit_user").addEventListener("click",
+		document.getElementById("open-popup").addEventListener("click",
 				function() {
 					// Toggle the disabled attribute when the button is clicked
 					toggleInputs(false); // Enable input fields
