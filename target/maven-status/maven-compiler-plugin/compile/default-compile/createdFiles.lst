@@ -1,0 +1,4 @@
+com\fssa\bookstore\userservlet\LoginServlet.class
+com\fssa\bookstore\servlet\EditBookServlet.class
+com\fssa\bookstore\servlet\ViewBookServlet.class
+com\fssa\bookstore\userservlet\ProfileServlet.class

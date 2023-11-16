@@ -469,6 +469,9 @@ footer h3 {
 }
 .user-options{
 display: flex;
+position: absolute;
+top: 90%;
+right: 48%;
 }
 .user-options > a{
 margin-left:-272px;
@@ -581,7 +584,7 @@ margin-left:-272px;
 							</div>
 						</div>
 					</form>
-					<a href="#"><button id="open-popup" type="button">Update profile</button></a> 
+						<a href="#"><button id="open-popup" type="button">Update profile</button></a> 
 					<div class="user-options">
 						<a href="deleteServlet?email=<%=userDetails.getEmail() != null ? userDetails.getEmail() : ""%>">
 							<button type="button" id="deletebtn" >Delete</button>

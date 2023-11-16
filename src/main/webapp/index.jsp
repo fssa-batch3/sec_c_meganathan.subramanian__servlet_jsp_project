@@ -516,7 +516,7 @@
 		<p style="text-align: center;">&#169;Copyright 2022-Meganathan</p>
 	</footer>
 
-	<!------------------------END OF THE FOOTER CONTENT----------------- -->
+	<!------------------------END OF THE FOOTER CONTENT------------------->
 	<%
 	HttpSession httpSession = request.getSession(false);
 	User userDetails = (User) httpSession.getAttribute("logInUserDetails");
@@ -526,8 +526,7 @@
 		// Check if the user is logged in
 		let userLoggedIn = 	<%=userDetails != null%>;
 
-		function addToCart(bookId, bookImageUrl, bookTitle, Price,
-				authorContent) {
+		function addToCart(bookId, bookImageUrl, bookTitle, Price, authorContent) {
 			if (typeof Storage !== "undefined") {
 				if (!userLoggedIn) {
 					alert("Seems you're not logged in");
@@ -554,8 +553,7 @@
 						};
 
 						cartItems.push(book);
-						localStorage.setItem("user_cart", JSON
-								.stringify(cartItems));
+						localStorage.setItem("user_cart", JSON.stringify(cartItems));
 						alert("Book added to cart!");
 					} else {
 						alert("Book is already in the cart!");

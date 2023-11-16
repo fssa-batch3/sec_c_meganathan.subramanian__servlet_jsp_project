@@ -78,7 +78,6 @@ h1 {
 
 <body>
 <jsp:include page="admin_header.jsp"></jsp:include>
-
 	<%
 	String error = (String) request.getAttribute("errorMessage");
 	if (error != null && !("".equals(error))) {
